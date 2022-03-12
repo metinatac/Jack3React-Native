@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyAwesomeProject.iml" filepath="$PROJECT_DIR$/.idea/modules/MyAwesomeProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyAwesomeProject.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyAwesomeProject.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-38722106/MyAwesomeProject.react-native-camera.iml" filepath="$PROJECT_DIR$/.idea/modules/-38722106/MyAwesomeProject.react-native-camera.iml" />
+    </modules>
+  </component>
+</project>

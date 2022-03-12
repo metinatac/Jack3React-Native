@@ -1,0 +1,197 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.myawesomeproject"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="30" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:5:5-77
+11-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:4:5-67
+12-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:4:22-64
+13    <uses-permission android:name="android.permission.CAMERA" />
+13-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:5:5-65
+13-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:5:22-62
+14    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+14-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:6:5-70
+14-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:6:22-68
+15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+15-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:7:5-80
+15-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:7:22-77
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:8:5-81
+16-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:8:22-78
+17    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+17-->[com.facebook.flipper:flipper:0.99.0] /Users/metinatac/.gradle/caches/transforms-3/041805b99d8e6a1f0a091cc60d68f893/transformed/jetified-flipper-0.99.0/AndroidManifest.xml:16:5-76
+17-->[com.facebook.flipper:flipper:0.99.0] /Users/metinatac/.gradle/caches/transforms-3/041805b99d8e6a1f0a091cc60d68f893/transformed/jetified-flipper-0.99.0/AndroidManifest.xml:16:22-73
+18
+19    <uses-feature
+19-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:11:5-13:36
+20        android:name="android.hardware.camera"
+20-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:12:9-47
+21        android:required="false" />
+21-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:13:9-33
+22    <uses-feature
+22-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:14:5-16:36
+23        android:name="android.hardware.camera.autofocus"
+23-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:15:9-57
+24        android:required="false" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+24-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:16:9-33
+25    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+26    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+26-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:25:5-79
+26-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:25:22-76
+27
+28    <application
+28-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:11:5-30:19
+29        android:name="com.myawesomeproject.MainApplication"
+29-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:12:7-38
+30        android:allowBackup="false"
+30-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:16:7-34
+31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+31-->[androidx.core:core:1.6.0] /Users/metinatac/.gradle/caches/transforms-3/ecb2c3a6865172bfb094a8dedb1adb48/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
+32        android:debuggable="true"
+33        android:icon="@mipmap/ic_launcher"
+33-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:14:7-41
+34        android:label="@string/app_name"
+34-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:13:7-39
+35        android:roundIcon="@mipmap/ic_launcher_round"
+35-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:15:7-52
+36        android:theme="@style/AppTheme"
+36-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:17:7-38
+37        android:usesCleartextTraffic="true" >
+37-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:8:9-44
+38        <activity
+38-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:11:9-86
+39            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+39-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:11:19-83
+40            android:exported="false" />
+40-->[:react-native-navigation] /Users/metinatac/MyAwesomeProject/node_modules/react-native-navigation/lib/android/app/build/intermediates/merged_manifest/reactNative63Debug/AndroidManifest.xml:12:13-37
+41        <activity
+41-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:19:7-29:18
+42            android:name="com.myawesomeproject.MainActivity"
+42-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:20:9-37
+43            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+43-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:22:9-86
+44            android:label="@string/app_name"
+44-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:21:9-41
+45            android:launchMode="singleTask"
+45-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:23:9-40
+46            android:windowSoftInputMode="adjustResize" >
+46-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:24:9-51
+47            <intent-filter>
+47-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:25:9-28:25
+48                <action android:name="android.intent.action.MAIN" />
+48-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:26:13-65
+48-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:26:21-62
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:27:13-73
+50-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:27:23-70
+51            </intent-filter>
+52        </activity>
+53
+54        <service
+54-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/metinatac/.gradle/caches/transforms-3/aaaee4a2391f795579b66b68d6630635/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:9:9-15:19
+55            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+55-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/metinatac/.gradle/caches/transforms-3/aaaee4a2391f795579b66b68d6630635/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:10:13-91
+56            android:directBootAware="true"
+56-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:17:13-43
+57            android:exported="false" >
+57-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/metinatac/.gradle/caches/transforms-3/aaaee4a2391f795579b66b68d6630635/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:11:13-37
+58            <meta-data
+58-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/metinatac/.gradle/caches/transforms-3/aaaee4a2391f795579b66b68d6630635/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:12:13-14:85
+59                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
+59-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/metinatac/.gradle/caches/transforms-3/aaaee4a2391f795579b66b68d6630635/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:13:17-114
+60                android:value="com.google.firebase.components.ComponentRegistrar" />
+60-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/metinatac/.gradle/caches/transforms-3/aaaee4a2391f795579b66b68d6630635/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:14:17-82
+61            <meta-data
+61-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/metinatac/.gradle/caches/transforms-3/c4e715d84399c01f0e6eb88f0aa630d3/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:12:13-14:85
+62                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+62-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/metinatac/.gradle/caches/transforms-3/c4e715d84399c01f0e6eb88f0aa630d3/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:13:17-120
+63                android:value="com.google.firebase.components.ComponentRegistrar" />
+63-->[com.google.android.gms:play-services-mlkit-barcode-scanning:16.2.0] /Users/metinatac/.gradle/caches/transforms-3/c4e715d84399c01f0e6eb88f0aa630d3/transformed/jetified-play-services-mlkit-barcode-scanning-16.2.0/AndroidManifest.xml:14:17-82
+64            <meta-data
+64-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/metinatac/.gradle/caches/transforms-3/319b59ec101e8f666b51c5e7600f8b3b/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:12:13-14:85
+65                android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar"
+65-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/metinatac/.gradle/caches/transforms-3/319b59ec101e8f666b51c5e7600f8b3b/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:13:17-114
+66                android:value="com.google.firebase.components.ComponentRegistrar" />
+66-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/metinatac/.gradle/caches/transforms-3/319b59ec101e8f666b51c5e7600f8b3b/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:14:17-82
+67            <meta-data
+67-->[com.google.mlkit:vision-common:16.5.0] /Users/metinatac/.gradle/caches/transforms-3/c9ebeaeedd01669f1de1a8a156df8030/transformed/jetified-vision-common-16.5.0/AndroidManifest.xml:12:13-14:85
+68                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+68-->[com.google.mlkit:vision-common:16.5.0] /Users/metinatac/.gradle/caches/transforms-3/c9ebeaeedd01669f1de1a8a156df8030/transformed/jetified-vision-common-16.5.0/AndroidManifest.xml:13:17-124
+69                android:value="com.google.firebase.components.ComponentRegistrar" />
+69-->[com.google.mlkit:vision-common:16.5.0] /Users/metinatac/.gradle/caches/transforms-3/c9ebeaeedd01669f1de1a8a156df8030/transformed/jetified-vision-common-16.5.0/AndroidManifest.xml:14:17-82
+70            <meta-data
+70-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:20:13-22:85
+71                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+71-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:21:17-120
+72                android:value="com.google.firebase.components.ComponentRegistrar" />
+72-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:22:17-82
+73        </service>
+74
+75        <provider
+75-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:9:9-13:38
+76            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+76-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:10:13-78
+77            android:authorities="com.myawesomeproject.mlkitinitprovider"
+77-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:11:13-69
+78            android:exported="false"
+78-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:12:13-37
+79            android:initOrder="99" />
+79-->[com.google.mlkit:common:17.2.0] /Users/metinatac/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml:13:13-35
+80
+81        <service
+81-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+82            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+82-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+83            android:exported="false" >
+83-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+84            <meta-data
+84-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+85                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+85-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+86                android:value="cct" />
+86-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+87        </service>
+88        <service
+88-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/metinatac/.gradle/caches/transforms-3/6dbf11932c04c334a992bf10420334db/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+89            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+89-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/metinatac/.gradle/caches/transforms-3/6dbf11932c04c334a992bf10420334db/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+90            android:exported="false"
+90-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/metinatac/.gradle/caches/transforms-3/6dbf11932c04c334a992bf10420334db/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+91            android:permission="android.permission.BIND_JOB_SERVICE" >
+91-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/metinatac/.gradle/caches/transforms-3/6dbf11932c04c334a992bf10420334db/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+92        </service>
+93
+94        <receiver
+94-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/metinatac/.gradle/caches/transforms-3/6dbf11932c04c334a992bf10420334db/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+95            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+95-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/metinatac/.gradle/caches/transforms-3/6dbf11932c04c334a992bf10420334db/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+96            android:exported="false" />
+96-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/metinatac/.gradle/caches/transforms-3/6dbf11932c04c334a992bf10420334db/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+97
+98        <activity
+98-->[com.google.android.gms:play-services-base:17.6.0] /Users/metinatac/.gradle/caches/transforms-3/37a0a7be258d79c38baf5ebe0339f2fc/transformed/jetified-play-services-base-17.6.0/AndroidManifest.xml:23:9-26:75
+99            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+99-->[com.google.android.gms:play-services-base:17.6.0] /Users/metinatac/.gradle/caches/transforms-3/37a0a7be258d79c38baf5ebe0339f2fc/transformed/jetified-play-services-base-17.6.0/AndroidManifest.xml:24:13-79
+100            android:exported="false"
+100-->[com.google.android.gms:play-services-base:17.6.0] /Users/metinatac/.gradle/caches/transforms-3/37a0a7be258d79c38baf5ebe0339f2fc/transformed/jetified-play-services-base-17.6.0/AndroidManifest.xml:25:13-37
+101            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+101-->[com.google.android.gms:play-services-base:17.6.0] /Users/metinatac/.gradle/caches/transforms-3/37a0a7be258d79c38baf5ebe0339f2fc/transformed/jetified-play-services-base-17.6.0/AndroidManifest.xml:26:13-72
+102
+103        <meta-data
+103-->[com.google.android.gms:play-services-basement:17.6.0] /Users/metinatac/.gradle/caches/transforms-3/d023145c27ceb1e0f59cd04a7cb36a16/transformed/jetified-play-services-basement-17.6.0/AndroidManifest.xml:23:9-25:69
+104            android:name="com.google.android.gms.version"
+104-->[com.google.android.gms:play-services-basement:17.6.0] /Users/metinatac/.gradle/caches/transforms-3/d023145c27ceb1e0f59cd04a7cb36a16/transformed/jetified-play-services-basement-17.6.0/AndroidManifest.xml:24:13-58
+105            android:value="@integer/google_play_services_version" />
+105-->[com.google.android.gms:play-services-basement:17.6.0] /Users/metinatac/.gradle/caches/transforms-3/d023145c27ceb1e0f59cd04a7cb36a16/transformed/jetified-play-services-basement-17.6.0/AndroidManifest.xml:25:13-66
+106    </application>
+107
+108</manifest>
