@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/metinatac/MyAwesomeProject/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/Users/metinatac/.gradle/caches/transforms-3/4ab2730260db7185a9794d480db759c0/transformed/appcompat-1.3.1/res/values-v24/values-v24.xml",

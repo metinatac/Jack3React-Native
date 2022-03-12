@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyAwesomeProject.iml" filepath="$PROJECT_DIR$/.idea/modules/MyAwesomeProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyAwesomeProject.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyAwesomeProject.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-38722106/MyAwesomeProject.react-native-camera.iml" filepath="$PROJECT_DIR$/.idea/modules/-38722106/MyAwesomeProject.react-native-camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1461428965/MyAwesomeProject.react-native-navigation.iml" filepath="$PROJECT_DIR$/.idea/modules/-1461428965/MyAwesomeProject.react-native-navigation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/554594832/MyAwesomeProject.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/554594832/MyAwesomeProject.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1472322008/MyAwesomeProject.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/-1472322008/MyAwesomeProject.react-native-screens.iml" />
     </modules>
   </component>
 </project>

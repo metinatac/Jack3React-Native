@@ -9,90 +9,90 @@
 9        android:targetSdkVersion="30" />
 10
 11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-11-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:5:5-77
-11-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:5:22-75
+11-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/debug/AndroidManifest.xml:5:5-77
+11-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/debug/AndroidManifest.xml:5:22-75
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:4:5-67
-12-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:4:22-64
+12-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:4:5-67
+12-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:4:22-64
 13    <uses-permission android:name="android.permission.CAMERA" />
-13-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:5:5-65
-13-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:5:22-62
+13-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:5:5-65
+13-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:5:22-62
 14    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-14-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:6:5-70
-14-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:6:22-68
+14-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:6:5-70
+14-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:6:22-68
 15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-15-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:7:5-80
-15-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:7:22-77
+15-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:7:5-80
+15-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:7:22-77
 16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-16-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:8:5-81
-16-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:8:22-78
+16-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:8:5-81
+16-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:8:22-78
 17    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 17-->[com.facebook.flipper:flipper:0.99.0] /Users/metinatac/.gradle/caches/transforms-3/041805b99d8e6a1f0a091cc60d68f893/transformed/jetified-flipper-0.99.0/AndroidManifest.xml:16:5-76
 17-->[com.facebook.flipper:flipper:0.99.0] /Users/metinatac/.gradle/caches/transforms-3/041805b99d8e6a1f0a091cc60d68f893/transformed/jetified-flipper-0.99.0/AndroidManifest.xml:16:22-73
 18
 19    <uses-feature
-19-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:11:5-13:36
+19-->[:react-native-camera] /Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:11:5-13:36
 20        android:name="android.hardware.camera"
-20-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:12:9-47
+20-->[:react-native-camera] /Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:12:9-47
 21        android:required="false" />
-21-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:13:9-33
+21-->[:react-native-camera] /Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:13:9-33
 22    <uses-feature
-22-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:14:5-16:36
+22-->[:react-native-camera] /Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:14:5-16:36
 23        android:name="android.hardware.camera.autofocus"
-23-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:15:9-57
+23-->[:react-native-camera] /Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:15:9-57
 24        android:required="false" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
-24-->[:react-native-camera] /Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:16:9-33
+24-->[:react-native-camera] /Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-camera/android/build/intermediates/merged_manifest/mlkitDebug/AndroidManifest.xml:16:9-33
 25    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 26    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 26-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:25:5-79
 26-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/metinatac/.gradle/caches/transforms-3/d98a4f20e44e15040ff44b349b79376c/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:25:22-76
 27
 28    <application
-28-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:11:5-30:19
+28-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:11:5-30:19
 29        android:name="com.myawesomeproject.MainApplication"
-29-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:12:7-38
+29-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:12:7-38
 30        android:allowBackup="false"
-30-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:16:7-34
+30-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:16:7-34
 31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 31-->[androidx.core:core:1.6.0] /Users/metinatac/.gradle/caches/transforms-3/ecb2c3a6865172bfb094a8dedb1adb48/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
 32        android:debuggable="true"
 33        android:icon="@mipmap/ic_launcher"
-33-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:14:7-41
+33-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:14:7-41
 34        android:label="@string/app_name"
-34-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:13:7-39
+34-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:13:7-39
 35        android:roundIcon="@mipmap/ic_launcher_round"
-35-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:15:7-52
+35-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:15:7-52
 36        android:theme="@style/AppTheme"
-36-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:17:7-38
+36-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:17:7-38
 37        android:usesCleartextTraffic="true" >
-37-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:8:9-44
+37-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/debug/AndroidManifest.xml:8:9-44
 38        <activity
-38-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:11:9-86
+38-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/debug/AndroidManifest.xml:11:9-86
 39            android:name="com.facebook.react.devsupport.DevSettingsActivity"
-39-->/Users/metinatac/MyAwesomeProject/android/app/src/debug/AndroidManifest.xml:11:19-83
+39-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/debug/AndroidManifest.xml:11:19-83
 40            android:exported="false" />
-40-->[:react-native-navigation] /Users/metinatac/MyAwesomeProject/node_modules/react-native-navigation/lib/android/app/build/intermediates/merged_manifest/reactNative63Debug/AndroidManifest.xml:12:13-37
+40-->[:react-native-navigation] /Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-navigation/lib/android/app/build/intermediates/merged_manifest/reactNative63Debug/AndroidManifest.xml:12:13-37
 41        <activity
-41-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:19:7-29:18
+41-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:19:7-29:18
 42            android:name="com.myawesomeproject.MainActivity"
-42-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:20:9-37
+42-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:20:9-37
 43            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-43-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:22:9-86
+43-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:22:9-86
 44            android:label="@string/app_name"
-44-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:21:9-41
+44-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:21:9-41
 45            android:launchMode="singleTask"
-45-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:23:9-40
+45-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:23:9-40
 46            android:windowSoftInputMode="adjustResize" >
-46-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:24:9-51
+46-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:24:9-51
 47            <intent-filter>
-47-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:25:9-28:25
+47-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:25:9-28:25
 48                <action android:name="android.intent.action.MAIN" />
-48-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:26:13-65
-48-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:26:21-62
+48-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:26:13-65
+48-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:26:21-62
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:27:13-73
-50-->/Users/metinatac/MyAwesomeProject/android/app/src/main/AndroidManifest.xml:27:23-70
+50-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:27:13-73
+50-->/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/AndroidManifest.xml:27:23-70
 51            </intent-filter>
 52        </activity>
 53

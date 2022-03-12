@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/metinatac/MyAwesomeProject/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
                     "source": "/Users/metinatac/.gradle/caches/transforms-3/ecb2c3a6865172bfb094a8dedb1adb48/transformed/core-1.6.0/res/values/values.xml",
@@ -116,6 +116,25 @@
                     }
                 },
                 {
+                    "source": "/Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-navigation/lib/android/app/build/intermediates/packaged_res/reactNative63/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,23",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,93,133,180,233,278,332,384,427,472,518,564,608,650,696,741,796,850,902,1025",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,22,25",
+                        "endColumns": "37,39,46,52,44,53,51,42,44,45,45,43,41,45,44,54,53,51,12,12",
+                        "endOffsets": "88,128,175,228,273,327,379,422,467,513,559,603,645,691,736,791,845,897,1020,1123"
+                    },
+                    "to": {
+                        "startLines": "719,960,961,966,977,978,979,980,981,982,983,984,985,986,990,1020,1147,1148,4102,4944",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "40402,55639,55679,55948,56475,56520,56574,56626,56669,56714,56760,56806,56850,56892,57077,58621,69785,69839,271437,324891",
+                        "endLines": "719,960,961,966,977,978,979,980,981,982,983,984,985,986,990,1020,1147,1148,4104,4946",
+                        "endColumns": "37,39,46,52,44,53,51,42,44,45,45,43,41,45,44,54,53,51,12,12",
+                        "endOffsets": "40435,55674,55721,55996,56515,56569,56621,56664,56709,56755,56801,56845,56887,56933,57117,58671,69834,69886,271555,324989"
+                    }
+                },
+                {
                     "source": "/Users/metinatac/.gradle/caches/transforms-3/dd46c915bd81c262672cb57cb325307a/transformed/jetified-savedstate-1.1.0/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -130,6 +149,23 @@
                         "startOffsets": "59167",
                         "endColumns": "53",
                         "endOffsets": "59216"
+                    }
+                },
+                {
+                    "source": "/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "53",
+                        "endOffsets": "65"
+                    },
+                    "to": {
+                        "startLines": "1090",
+                        "startColumns": "4",
+                        "startOffsets": "63108",
+                        "endColumns": "53",
+                        "endOffsets": "63157"
                     }
                 },
                 {
@@ -171,42 +207,6 @@
                     }
                 },
                 {
-                    "source": "/Users/metinatac/MyAwesomeProject/android/app/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endColumns": "53",
-                        "endOffsets": "65"
-                    },
-                    "to": {
-                        "startLines": "1090",
-                        "startColumns": "4",
-                        "startOffsets": "63108",
-                        "endColumns": "53",
-                        "endOffsets": "63157"
-                    }
-                },
-                {
-                    "source": "/Users/metinatac/MyAwesomeProject/node_modules/react-native-camera/android/build/intermediates/packaged_res/mlkit/debug/values/values.xml",
-                    "from": {
-                        "startLines": "2,9",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,354",
-                        "endLines": "8,51",
-                        "endColumns": "12,24",
-                        "endOffsets": "349,2241"
-                    },
-                    "to": {
-                        "startLines": "4234,5933",
-                        "startColumns": "4,4",
-                        "startOffsets": "281102,379691",
-                        "endLines": "4240,5975",
-                        "endColumns": "12,24",
-                        "endOffsets": "281396,381578"
-                    }
-                },
-                {
                     "source": "/Users/metinatac/.gradle/caches/transforms-3/f9ef7a71b83df13c424be5b0fc96afe3/transformed/jetified-appcompat-resources-1.3.1/res/values/values.xml",
                     "from": {
                         "startLines": "2,29,36,47,74",
@@ -223,6 +223,25 @@
                         "endLines": "5121,5128,5139,7586,7591",
                         "endColumns": "24,24,24,24,24",
                         "endOffsets": "335096,335481,336078,488506,488776"
+                    }
+                },
+                {
+                    "source": "/Users/metinatac/Documents/GitHub/Jack3React-Native/node_modules/react-native-camera/android/build/intermediates/packaged_res/mlkit/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2,9",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,354",
+                        "endLines": "8,51",
+                        "endColumns": "12,24",
+                        "endOffsets": "349,2241"
+                    },
+                    "to": {
+                        "startLines": "4234,5933",
+                        "startColumns": "4,4",
+                        "startOffsets": "281102,379691",
+                        "endLines": "4240,5975",
+                        "endColumns": "12,24",
+                        "endOffsets": "281396,381578"
                     }
                 },
                 {
@@ -317,6 +336,25 @@
                     }
                 },
                 {
+                    "source": "/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "54",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "180"
+                    },
+                    "to": {
+                        "startLines": "1243",
+                        "startColumns": "4",
+                        "startOffsets": "81212",
+                        "endLines": "1245",
+                        "endColumns": "12",
+                        "endOffsets": "81338"
+                    }
+                },
+                {
                     "source": "/Users/metinatac/.gradle/caches/transforms-3/6d12aa93585adf498d1a6f0793804141/transformed/recyclerview-1.1.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
@@ -406,42 +444,6 @@
                     }
                 },
                 {
-                    "source": "/Users/metinatac/MyAwesomeProject/android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
-                    "from": {
-                        "startLines": "6,8",
-                        "startColumns": "4,4",
-                        "startOffsets": "156,262",
-                        "endColumns": "63,68",
-                        "endOffsets": "215,326"
-                    },
-                    "to": {
-                        "startLines": "1054,1055",
-                        "startColumns": "4,4",
-                        "startOffsets": "60589,60653",
-                        "endColumns": "63,68",
-                        "endOffsets": "60648,60717"
-                    }
-                },
-                {
-                    "source": "/Users/metinatac/MyAwesomeProject/android/app/src/main/res/values/styles.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "54",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "180"
-                    },
-                    "to": {
-                        "startLines": "1243",
-                        "startColumns": "4",
-                        "startOffsets": "81212",
-                        "endLines": "1245",
-                        "endColumns": "12",
-                        "endOffsets": "81338"
-                    }
-                },
-                {
                     "source": "/Users/metinatac/.gradle/caches/transforms-3/7098212ebde1eaeafd347667190e786b/transformed/coordinatorlayout-1.1.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,6,16",
@@ -480,25 +482,6 @@
                     }
                 },
                 {
-                    "source": "/Users/metinatac/MyAwesomeProject/node_modules/react-native-navigation/lib/android/app/build/intermediates/packaged_res/reactNative63/debug/values/values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,23",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,93,133,180,233,278,332,384,427,472,518,564,608,650,696,741,796,850,902,1025",
-                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,22,25",
-                        "endColumns": "37,39,46,52,44,53,51,42,44,45,45,43,41,45,44,54,53,51,12,12",
-                        "endOffsets": "88,128,175,228,273,327,379,422,467,513,559,603,645,691,736,791,845,897,1020,1123"
-                    },
-                    "to": {
-                        "startLines": "719,960,961,966,977,978,979,980,981,982,983,984,985,986,990,1020,1147,1148,4102,4944",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "40402,55639,55679,55948,56475,56520,56574,56626,56669,56714,56760,56806,56850,56892,57077,58621,69785,69839,271437,324891",
-                        "endLines": "719,960,961,966,977,978,979,980,981,982,983,984,985,986,990,1020,1147,1148,4104,4946",
-                        "endColumns": "37,39,46,52,44,53,51,42,44,45,45,43,41,45,44,54,53,51,12,12",
-                        "endOffsets": "40435,55674,55721,55996,56515,56569,56621,56664,56709,56755,56801,56845,56887,56933,57117,58671,69834,69886,271555,324989"
-                    }
-                },
-                {
                     "source": "/Users/metinatac/.gradle/caches/transforms-3/adb86143510af23268d2ea017605dc8f/transformed/media-1.0.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,5,6,7,8,10,11,12,13,14",
@@ -532,6 +515,23 @@
                         "endLines": "20",
                         "endColumns": "20",
                         "endOffsets": "750"
+                    }
+                },
+                {
+                    "source": "/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/generated/res/resValues/debug/values/gradleResValues.xml",
+                    "from": {
+                        "startLines": "6,8",
+                        "startColumns": "4,4",
+                        "startOffsets": "156,262",
+                        "endColumns": "63,68",
+                        "endOffsets": "215,326"
+                    },
+                    "to": {
+                        "startLines": "1054,1055",
+                        "startColumns": "4,4",
+                        "startOffsets": "60589,60653",
+                        "endColumns": "63,68",
+                        "endOffsets": "60648,60717"
                     }
                 }
             ]

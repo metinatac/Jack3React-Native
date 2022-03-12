@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/metinatac/MyAwesomeProject/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-uz/values-uz.xml",
+            "outputFile": "/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-uz/values-uz.xml",
             "map": [
                 {
                     "source": "/Users/metinatac/.gradle/caches/transforms-3/d023145c27ceb1e0f59cd04a7cb36a16/transformed/jetified-play-services-basement-17.6.0/res/values-uz/values.xml",

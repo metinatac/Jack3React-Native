@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.mlkit:common:17.2.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d92bcde582c7cec9e65cec75467480f6/transformed/jetified-common-17.2.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d92bcde582c7cec9e65cec75467480f6/transformed/jetified-common-17.2.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d92bcde582c7cec9e65cec75467480f6/transformed/jetified-common-17.2.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5bce43d71a3d83d45311bbca93b651e8/transformed/jetified-common-17.2.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.mlkit/common/17.2.0/79c1584a5f35389e648a9265798e6ba4c38a6483/common-17.2.0-javadoc.jar!/" />
