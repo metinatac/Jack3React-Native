@@ -1,13 +1,18 @@
 import React, { PureComponent } from "react";
 import {Navigation} from 'react-native-navigation';
 import { RequestManager } from "../Scripts/RequestManager";
+import ActionSheet , {SheetManager}from "react-native-actions-sheet";
+import ActionSheetButton from "../Components/ActionSheetButton";
 import {
     View,
     Text,
     StyleSheet,
     ActivityIndicator,
     FlatList,
+    Button,
+    Alert,
 } from 'react-native';
+import { DebugInstructions } from "react-native/Libraries/NewAppScreen";
 interface IQRCodeDetailsViewProps{
  componentId: string;
  qrCodeData: string;
@@ -19,8 +24,10 @@ interface IQRCodeDetailsViewState{
   isLoading: Boolean,
 }
 
-export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsViewProps,IQRCodeDetailsViewState>{
+ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsViewProps,IQRCodeDetailsViewState>{
    
+
+
 componentWillUnmount(){
     Navigation.updateProps(this.props.idOfViewBefore, {
         enableScan: true
@@ -28,7 +35,9 @@ componentWillUnmount(){
 }
 
 componentDidMount(){
-  this.request()
+  //this.request()
+  
+  
 }
 
 
@@ -45,26 +54,55 @@ private request = async () =>{
     constructor(props: IQRCodeDetailsViewProps){
       super(props);
       this.state = { 
-        isLoading: true,
-        data: []
+        isLoading: false,
+        data: [],
+        
+        
       };
       
       
 
       
     }
+
+    public openSheet(){
+     
+      SheetManager.show("HELLO");
+
+
+        
+         
+    }
+
+
   public render(){
-  
+   
+
   return(
         <View style={styles.container}> 
                  {this.state.isLoading ? <ActivityIndicator/> : (
-          <FlatList
-            data={this.state.data}
-            keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (
-              <Text>{item.title}, {item.releaseYear}</Text>
-            )}
-          />
+                 <View > 
+                  <Button
+                    title= "TEST"
+                    onPress= {this.openSheet.bind(this)}
+                  />
+                  <ActionSheet id = "HELLO">
+                    <View>
+                      <ActionSheetButton
+                      text="BUTTON1"
+                      onPress={()=>{}}
+                     />
+                      <ActionSheetButton
+                        text="BUTTON1"
+                        onPress={()=>{}}
+                        />
+                     
+                    </View>
+                  </ActionSheet>
+                    
+
+                 </View>
+                   
         )}
 
         </View>

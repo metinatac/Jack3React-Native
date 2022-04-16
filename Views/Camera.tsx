@@ -3,9 +3,7 @@ import {RNCamera} from 'react-native-camera';
 import {Navigation} from 'react-native-navigation';
 import {
     View,
-    AppRegistry,
-    Text,
-    TouchableOpacity,
+    Text, 
     StyleSheet,
     Image
 } from 'react-native';

@@ -25,6 +25,8 @@ export class RequestManager {
          }
     }
 }
+
+
 export namespace RequestManager{
     export enum Type{
         GET = "GET",

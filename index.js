@@ -1,22 +1,32 @@
-/**
- * @format
- */
-import { Navigation} from 'react-native-navigation';
-import App from './Views/App';
+import {Navigation} from 'react-native-navigation';
+import Camera from './Views/Camera';
+import MainView from './Views/MainView';
+import QRCodeDetailsView from './Views/QRCodeDetailsView';
 
-Navigation.registerComponent('com.myApp.WelcomeScreen', () => App);
+Navigation.registerComponent('MainScreen',() => MainView);
+Navigation.registerComponent('CameraView',() => Camera);
+Navigation.registerComponent('QRCodeDetailsView', () => QRCodeDetailsView)
+
 Navigation.events().registerAppLaunchedListener(() => {
-   Navigation.setRoot({
-     root: {
-       stack: {
-         children: [
-           {
-             component: {
-               name: 'com.myApp.WelcomeScreen'
-             }
-           }
-         ]
-       }
-     }
-  });
+    Navigation.setRoot({
+        root: {
+          stack: {
+              children: [
+                 {
+                      component:{
+                         name: 'MainScreen',
+                         options: {
+                             topBar:{
+                                 title: {
+                                     text: "Main"
+                                 }
+                              }
+                          }
+                      }
+                 },
+             ]
+          }
+        }
+    })
 });
+

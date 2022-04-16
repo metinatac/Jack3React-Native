@@ -18,6 +18,7 @@ interface IMainViewProps{
 interface IMainViewState{
     cameraIsActive: boolean;
     qrCodeData: string;
+   
 }
 
 export default class MainView extends React.Component<IMainViewProps,IMainViewState>{
@@ -26,7 +27,7 @@ export default class MainView extends React.Component<IMainViewProps,IMainViewSt
       super(props);
      this.state = {
          cameraIsActive: true,
-         qrCodeData: ""
+         qrCodeData: "",
      }
 
     this.onQRDetected = this.onQRDetected.bind(this)
@@ -39,23 +40,16 @@ export default class MainView extends React.Component<IMainViewProps,IMainViewSt
     }
   
   public render(){
-  
   return(
         <View style={styles.container}> 
             <Button
              title=" OPEN SCANNER"
              onPress={this.openCameraView.bind(this)}
             />
-              
-                
-           
         </View>
   );
 }
 
-private bla(){
-  rmManger  = new RequestManager();
-}
 
 private openCameraView() {
     Navigation.push(this.props.componentId, {
