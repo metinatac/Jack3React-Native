@@ -1,8 +1,15 @@
-import React, { PureComponent } from "react";
+import * as React from "react";
 import {Navigation} from 'react-native-navigation';
 import { RequestManager } from "../Scripts/RequestManager";
 import ActionSheet , {SheetManager}from "react-native-actions-sheet";
 import ActionSheetButton from "../Components/ActionSheetButton";
+import DocumentPicker, {
+  DirectoryPickerResponse,
+  DocumentPickerResponse,
+  isInProgress,
+  types,
+} from 'react-native-document-picker'
+import { useEffect } from 'react'
 import {
     View,
     Text,
@@ -11,6 +18,7 @@ import {
     FlatList,
     Button,
     Alert,
+    SectionList,
 } from 'react-native';
 import { DebugInstructions } from "react-native/Libraries/NewAppScreen";
 interface IQRCodeDetailsViewProps{
@@ -22,12 +30,11 @@ interface IQRCodeDetailsViewProps{
 interface IQRCodeDetailsViewState{
   data: [],
   isLoading: Boolean,
+  result: DirectoryPickerResponse[]
 }
 
  export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsViewProps,IQRCodeDetailsViewState>{
-   
-
-
+ 
 componentWillUnmount(){
     Navigation.updateProps(this.props.idOfViewBefore, {
         enableScan: true
@@ -36,10 +43,7 @@ componentWillUnmount(){
 
 componentDidMount(){
   //this.request()
-  
-  
 }
-
 
 private request = async () =>{
   const rqManager = new RequestManager;
@@ -50,41 +54,62 @@ private request = async () =>{
    isLoading: false
   })
  }
-
     constructor(props: IQRCodeDetailsViewProps){
       super(props);
       this.state = { 
         isLoading: false,
         data: [],
-        
+        result:[]
         
       };
+    }
+    public Sheet(show:boolean){
       
-      
-
+     const sheetKey:string = "HELLO"
+      if(show){
+        console.warn("OPEN SHEET")
+        SheetManager.show(sheetKey)
+      }else{
+        SheetManager.hide(sheetKey)
+      }
       
     }
 
-    public openSheet(){
-     
-      SheetManager.show("HELLO");
-
-
+    public openMultiPicker(){
+      this.Sheet(false)
+      const handleError = (err: unknown) => {
+          if (DocumentPicker.isCancel(err)) {
+            console.warn('cancelled')
+            // User cancelled the picker, exit any dialogs or menus and move on
+          } else if (isInProgress(err)) {
+            console.warn('multiple pickers were opened, only the last will be considered')
+          } else {
+            throw err
+          }
+        }
+      DocumentPicker.pickMultiple().then((value) =>{
+        this.setState({result: this.state.result.concat(value)})
         
-         
+      }).catch(handleError)
     }
-
 
   public render(){
-   
-
+    console.warn(this.state.result.length)
   return(
         <View style={styles.container}> 
                  {this.state.isLoading ? <ActivityIndicator/> : (
                  <View > 
+                   <SectionList
+                   sections={[{title: 'Dokumente', data: this.state.result}]}
+                   renderItem={({item}) => 
+                  <Text>{item.name}</Text>}
+                   />
+                     
+
+                 
                   <Button
                     title= "TEST"
-                    onPress= {this.openSheet.bind(this)}
+                    onPress= {this.Sheet.bind(this,true)}
                   />
                   <ActionSheet id = "HELLO">
                     <View>
@@ -93,8 +118,8 @@ private request = async () =>{
                       onPress={()=>{}}
                      />
                       <ActionSheetButton
-                        text="BUTTON1"
-                        onPress={()=>{}}
+                        text="Dokument wählen"
+                        onPress={this.openMultiPicker.bind(this)}
                         />
                      
                     </View>
@@ -102,7 +127,6 @@ private request = async () =>{
                     
 
                  </View>
-                   
         )}
 
         </View>
@@ -138,3 +162,4 @@ const styles = StyleSheet.create({
     margin: 20,
   },
 });
+

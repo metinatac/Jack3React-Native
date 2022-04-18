@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 // react-native-camera
 import org.reactnative.camera.RNCameraPackage;
+// react-native-document-picker
+import com.reactnativedocumentpicker.DocumentPickerPackage;
 // react-native-navigation
 import com.reactnativenavigation.react.NavigationPackage;
 // react-native-safe-area-context
@@ -65,6 +67,7 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNCameraPackage(),
+      new DocumentPickerPackage(),
       new NavigationPackage(reactNativeHost),
       new SafeAreaContextPackage(),
       new RNScreensPackage()
