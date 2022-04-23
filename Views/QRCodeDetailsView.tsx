@@ -9,7 +9,7 @@ import DocumentPicker, {
   isInProgress,
   types,
 } from 'react-native-document-picker'
-import { useEffect } from 'react'
+import FileCard from "../ViewComponents/FileCard";
 import {
     View,
     Text,
@@ -98,15 +98,20 @@ private request = async () =>{
   return(
         <View style={styles.container}> 
                  {this.state.isLoading ? <ActivityIndicator/> : (
-                 <View > 
+                 <View style={styles.container2}> 
                    <SectionList
                    sections={[{title: 'Dokumente', data: this.state.result}]}
                    renderItem={({item}) => 
-                  <Text>{item.name}</Text>}
+                    <FileCard
+                    filename={item.name}
+                    fileType={item.fileType}
+                    onEdit={() =>{}}
+                    onRemove={()=>{}}
+                    ></FileCard>
+                    
+                  }
                    />
-                     
-
-                 
+           
                   <Button
                     title= "TEST"
                     onPress= {this.Sheet.bind(this,true)}
@@ -146,6 +151,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column',
     backgroundColor: 'white',
+    
+  },
+  container2: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    backgroundColor: 'white',
+    padding: 20,
   },
   preview: {
     flex: 1,
