@@ -43,7 +43,7 @@ export default class FileCard extends React.Component<IFileCardProps, IFileCardS
         return (
             
                 <View style= {[styles.fileCardContainer]}>
-                   <View style= {[styles.item]}>
+                   <View style= {[styles.fileNameContainer]}>
                     <Text>{this.props.filename}</Text>     
                     </View>
                 </View>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
       padding: 10,
       marginTop: 5
     },
-    item: {
+    fileNameContainer: {
         backgroundColor: Colors.primaryWhite,
         padding:20
       },
