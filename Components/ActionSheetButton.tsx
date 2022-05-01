@@ -1,14 +1,15 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import  {Colors}  from '../Constants';
-interface ICutomButtonProps {
+import  {Colors, Resources}  from '../Constants';
+interface IActionSheetButtonProps {
     text: string;
     onPress: () => void;
     isActive?: boolean;
+    icon?: Resources;
 }
 
-export default class CustomButton extends React.Component<ICutomButtonProps, any> {
-    constructor(props: ICutomButtonProps) {
+export default class ActionSheetButton extends React.Component<IActionSheetButtonProps, any> {
+    constructor(props: IActionSheetButtonProps) {
         super(props);
     }
 
@@ -31,6 +32,13 @@ export default class CustomButton extends React.Component<ICutomButtonProps, any
                         ]}>
                         {this.props.text}
                     </Text>
+                   {this.props.icon &&(
+                        <Image
+                        style= {styles.image}
+                        source={this.props.icon}
+                        />
+                   )}
+                  
                 </TouchableOpacity>
             </View>
         );
@@ -39,21 +47,24 @@ export default class CustomButton extends React.Component<ICutomButtonProps, any
 
 const styles = StyleSheet.create({
     button: {
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
-        paddingBottom: 50,
-        paddingTop:20
+        flexDirection: 'row-reverse',
+        paddingBottom: 30,
+        paddingTop:20,
+        width:'100%'
     },
     buttonText: {
         fontSize: 17,
-        textAlign: 'center',
+        textAlign: 'left',
+        width: "60%"
         //paddingRight: 20,
     },
     image: {
         width: 25,
         height: 25,
-        paddingHorizontal: 20,
         resizeMode: 'contain',
+        tintColor: Colors.primaryBlue,
     },
     divider: {
         width: '100%',
@@ -62,4 +73,5 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         backgroundColor: Colors.primaryDarkGray,
     },
+   
 });

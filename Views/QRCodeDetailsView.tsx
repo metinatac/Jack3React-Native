@@ -25,6 +25,30 @@ import {
   Permission,
 } from 'react-native';
 import { DebugInstructions } from "react-native/Libraries/NewAppScreen";
+import CustomButton from "../ViewComponents/CustomButton";
+import { Colors, Resources } from '../Constants';
+
+
+export function getNewFilesArray(fileIndex: number, _filesArray: SelectedFile[]): Array<SelectedFile>{
+
+
+  if(_filesArray.length == 1){
+    return new Array<SelectedFile>()
+  }
+  console.log(_filesArray);
+  var tmpNewFilesArray: SelectedFile[] = new Array<SelectedFile>(_filesArray.length-1);
+  var tmpIndex = 0;
+
+  _filesArray.forEach(function (value,index) {
+    if(fileIndex !== index){
+      tmpNewFilesArray[tmpIndex] = value;
+      tmpIndex++;
+    }
+  });
+  console.log(tmpNewFilesArray)
+  return tmpNewFilesArray;
+}
+
 interface IQRCodeDetailsViewProps {
   componentId: string;
   qrCodeData: string;
@@ -46,9 +70,11 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
   }
 
   componentDidMount() {
-    this.makeReq();
+    //this.makeReq();
 
   }
+
+  private filesArray : SelectedFile[] = [];
 
   private makeReq = async () => {
     const rM = new RequestManager();
@@ -60,7 +86,7 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
     const result = await rqManager.sendRequest(RequestManager.Type.GET, this.props.qrCodeData)
 
     this.setState({
-      data: result.movies,
+     
       isLoading: false
     })
   }
@@ -77,7 +103,7 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
 
     const sheetKey: string = "HELLO"
     if (show) {
-      console.warn("OPEN SHEET")
+      console.log("OPEN SHEET")
       SheetManager.show(sheetKey)
     } else {
       SheetManager.hide(sheetKey)
@@ -89,16 +115,16 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
     this.Sheet(false)
     const handleError = (err: unknown) => {
       if (DocumentPicker.isCancel(err)) {
-        console.warn('cancelled')
+        console.log('cancelled')
         // User cancelled the picker, exit any dialogs or menus and move on
       } else if (isInProgress(err)) {
-        console.warn('multiple pickers were opened, only the last will be considered')
+        console.log('multiple pickers were opened, only the last will be considered')
       } else {
         throw err
       }
     }
     DocumentPicker.pickMultiple().then((value) => {
-      var tmpConvertedFiles: SelectedFile[] = [value.length]
+      var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(value.length)
       value.forEach(function (value, index) {
         tmpConvertedFiles[index] = new SelectedFile(
           {
@@ -110,7 +136,7 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
         console.log(tmpConvertedFiles[index].fileName);
       });
 
-
+      this.filesArray = this.filesArray.concat(tmpConvertedFiles);
       this.setState({ result: this.state.result.concat(tmpConvertedFiles) })
 
     }).catch(handleError)
@@ -124,11 +150,12 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
     }
     const tmpFileCount = this.state.result.length;
     if (result.assets !== undefined) {
-      var tmpConvertedFiles: SelectedFile[] = [result.assets.length]
+      var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(result.assets.length)
       result.assets.forEach(function (value, index) {
         tmpConvertedFiles[index] = new SelectedFile(value);
         tmpConvertedFiles[index].fileName = "Image_" + (tmpFileCount + index + 1) + ""
       });
+      this.filesArray = this.filesArray.concat(tmpConvertedFiles);
       this.setState({ result: this.state.result.concat(tmpConvertedFiles) })
       // }
     }
@@ -139,54 +166,84 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
     const permissionStatus = await this.checkPermisson(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE, "", "", "");
     const result = await launchImageLibrary({ mediaType: 'photo' });
     if (result.assets !== undefined) {
-      var tmpConvertedFiles: SelectedFile[] = [result.assets.length]
+      var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(result.assets.length)
       const tmpFileCount = this.state.result.length;
       result.assets.forEach(function (value, index) {
         tmpConvertedFiles[index] = new SelectedFile(value);
         tmpConvertedFiles[index].fileName = "Image_" + (tmpFileCount + index + 1) + ""
       });
-      console.log(tmpConvertedFiles[0].id);
+      
+      this.filesArray = this.filesArray.concat(tmpConvertedFiles);
+      console.log(this.filesArray)
       this.setState({ result: this.state.result.concat(tmpConvertedFiles) })
     }
   }
 
 
   public render() {
-    console.warn(this.state.result.length)
+    this.filesArray = this.state.result
+    console.log(this.state.result.length)
     return (
       <View style={styles.container}>
         {this.state.isLoading ? <ActivityIndicator /> : (
           <View style={styles.container2}>
             <SectionList
+              style={styles.sectionListContainer}
               sections={[{ title: 'Dokumente', data: this.state.result }]}
-              renderItem={({ item }) =>
+              renderItem={({ item,index }) =>
                 <FileCard
-                  filename={item.fileName}
-                  fileType={item.type}
-                  onEdit={() => { }}
-                  onRemove={() => { }}
-                ></FileCard>
+                  files={this.filesArray}
+                  file={item}
+                  index={index}
+                  onEdit={this.editFile.bind(this)}
+                  onRemove={this.removeFile.bind(this)}>
+                </FileCard>
 
               }
             />
 
-            <Button
-              title="TEST"
+            <View style={styles.controllButtonsContainer}>
+            
+              <CustomButton
+              style={styles.customButtoncontainer}
+              text='Hochladen'
+              onPress={()=>{}}
+              icon={Resources.uploadIcon}
+              borderRadius={50}
+              iconPaddingLeft={50}
+              textPaddingLeft={20}
+              isActive = {this.filesArray.length < 1 ? false:true}
+              />
+
+              <CustomButton
+              text=''
               onPress={this.Sheet.bind(this, true)}
-            />
+              icon={Resources.addIcon2}
+              borderRadius={50}
+             
+
+              />
+            </View>
+
+            
+              
+           
             <ActionSheet id="HELLO">
               <View>
                 <ActionSheetButton
                   text="Neues Foto"
                   onPress={this.openCamera.bind(this)}
+                  icon={Resources.cameraIcon}
                 />
                 <ActionSheetButton
                   text="Aus Gallerie wählen "
                   onPress={this.openGallery.bind(this)}
+                  icon={Resources.galleryIcon}
                 />
                 <ActionSheetButton
                   text="Dokument wählen"
                   onPress={this.openMultiPicker.bind(this)}
+                  icon={Resources.fileIcon}
                 />
 
               </View>
@@ -199,6 +256,15 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
       </View>
     );
   }
+
+  private editFile (_index:number, _files: SelectedFile[]){
+     
+  }
+
+  private removeFile (_index:number, _files: SelectedFile[]){
+    this.setState({result: getNewFilesArray(_index, _files)});
+  }
+
 
 
   async checkPermisson(forPermisson: Permission, titleText: string, messageText: string, buttonPositiveLable: string, buttonNeutralLable?: string, buttonNegativeLable?: string) {
@@ -216,7 +282,7 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
       );
       return granted; // tpye -> PermisssionStatus
     } catch (err) {
-      console.warn(err);
+      console.log(err);
     }
   }
 }
@@ -234,6 +300,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column',
     backgroundColor: 'white',
+    width: '100%'
 
   },
   container2: {
@@ -243,6 +310,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     padding: 20,
+    width: '90%',
   },
   preview: {
     flex: 1,
@@ -258,5 +326,19 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 20,
   },
+
+  sectionListContainer: {
+    width: '100%'
+  },
+  controllButtonsContainer: {
+    flexDirection: 'row-reverse',
+    width:'100%',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+  customButtoncontainer:{
+    justifyContent: 'space-evenly'
+  }
+
 });
 
