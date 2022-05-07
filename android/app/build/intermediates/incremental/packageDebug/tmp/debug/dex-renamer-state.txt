@@ -1,14 +1,14 @@
-#Mon Apr 18 02:53:37 CEST 2022
+#Sat May 07 18:15:14 CEST 2022
 path.4=classes2.dex
 path.3=14/classes.dex
 path.2=0/classes.dex
 path.1=0/classes.dex
 path.0=classes.dex
-base.4=/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
-base.3=/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
-base.2=/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.1=/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
-base.0=/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.4=/Users/harun_melike_ilyas/git/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+base.3=/Users/harun_melike_ilyas/git/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
+base.2=/Users/harun_melike_ilyas/git/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.1=/Users/harun_melike_ilyas/git/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
+base.0=/Users/harun_melike_ilyas/git/Jack3React-Native/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex

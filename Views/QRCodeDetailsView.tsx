@@ -70,16 +70,30 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
   }
 
   componentDidMount() {
-    //this.makeReq();
+    /*this.makeReq();
+    
+    let formd = new FormData();
+    formd.append("file", {uri: '/Users/harun_melike_ilyas/git/Jack3React-Native/Assets/Download.png', name: 'Download.png', type: 'image/png'})
+    */
+    
+   
+    this.makeReqv3();
 
+    
   }
 
   private filesArray : SelectedFile[] = [];
 
   private makeReq = async () => {
     const rM = new RequestManager();
-    rM.doGetRequestv2('https://192.168.178.21:8443/fileuploadservlet')
+    rM.doGetRequestv2('https://192.168.0.234:8443/fileuploadservlet')
   }
+  private makeReqv3 = function() {return async () => {
+    const rM = new RequestManager();
+    rM.doGetRequestv3('https://192.168.0.234:8443/fileuploadservlet')
+    console.log('check')
+  }
+}
 
   private request = async () => {
     const rqManager = new RequestManager;

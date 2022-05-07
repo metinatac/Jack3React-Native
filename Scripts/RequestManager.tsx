@@ -40,6 +40,7 @@ fetch(url, {
          }*/
     }
     async doGetRequestv2(endpointData: string) {
+        console.log('check')
         RNFetchBlob.config({ trusty: true })
         .fetch(
           'GET',
@@ -47,6 +48,35 @@ fetch(url, {
         )
         .then(res => console.log(res));
       }
+
+    
+
+    async doGetRequestv4(endpointData: string, formdata: FormData) {
+        /*RNFetchBlob.config({ trusty: true })
+        .fetch(
+          'POST',
+          endpointData,
+          'Content-Type': 'multipart/form-data'
+        )
+        .then(res => console.log(res));*/
+      }
+
+      async doGetRequestv3(endpointData: string) {
+        console.log('check')
+        RNFetchBlob.config({ trusty: true }).fetch('POST', endpointData, {       
+            'Content-Type': 'multipart/form-data',
+          }, [
+            { name: 'file',id: '441', filename: 'Download.png', type: 'image/png', data: JSON.stringify(RNFetchBlob.wrap('Assets/Download.png'))}]).then((resp) => {
+              //response body         
+            }).catch((err) => {
+              console.log('error---------', err)
+              // ...
+              
+            })
+        console.log('check')
+      }
+
+      
 }
 
 
