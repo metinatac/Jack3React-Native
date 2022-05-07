@@ -77,7 +77,7 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
     */
     
    
-    this.makeReqv3();
+    //this.makeReqv3();
 
     
   }
@@ -88,12 +88,10 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
     const rM = new RequestManager();
     rM.doGetRequestv2('https://192.168.0.234:8443/fileuploadservlet')
   }
-  private makeReqv3 = function() {return async () => {
+  private makeReqv3 = async () => {
     const rM = new RequestManager();
-    rM.doGetRequestv3('https://192.168.0.234:8443/fileuploadservlet')
-    console.log('check')
+    rM.doGetRequestv3(this.filesArray[0],'https://192.168.0.234:8443/fileuploadservlet')
   }
-}
 
   private request = async () => {
     const rqManager = new RequestManager;
@@ -221,7 +219,7 @@ export default class QRCodeDetailsView extends React.Component<IQRCodeDetailsVie
               <CustomButton
               style={styles.customButtoncontainer}
               text='Hochladen'
-              onPress={()=>{}}
+              onPress={this.makeReqv3.bind(this)}
               icon={Resources.uploadIcon}
               borderRadius={50}
               iconPaddingLeft={50}
