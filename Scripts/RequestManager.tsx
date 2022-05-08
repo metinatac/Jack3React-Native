@@ -1,12 +1,10 @@
-import RNFetchBlob from "rn-fetch-blob";
-import { SelectedFile } from "./SelectedFile";
+import RNFetchBlob from 'rn-fetch-blob';
+import {SelectedFile} from './SelectedFile';
 
 export class RequestManager {
-    
-    constructor(){ 
-    }
+  constructor() {}
 
- /*
+  /*
    const file = {
   uri,             // e.g. 'file:///path/to/file/image123.jpg'
   name,            // e.g. 'image123.jpg',
@@ -22,16 +20,13 @@ fetch(url, {
 })
 */
 
-
-    public sendRequest(requestType: RequestManager.Type, endpointData: string){
-       
-        if(requestType === RequestManager.Type.GET){
-               return this.doGetRequest(endpointData);
-           }
-           
+  public sendRequest(requestType: RequestManager.Type, endpointData: string) {
+    if (requestType === RequestManager.Type.GET) {
+      return this.doGetRequest(endpointData);
     }
-   async doGetRequest(endpointData:string){
-      /*      try {
+  }
+  async doGetRequest(endpointData: string) {
+    /*      try {
                 const response =  await RNFetchBlob.config({trusty: true}).fetch(RequestManager.Type.GET, )
                
                 const json = await response.json();
@@ -39,65 +34,102 @@ fetch(url, {
             } catch(error){
                 console.warn(error);
          }*/
-    }
-    async doGetRequestv2(endpointData: string) {
-        console.log('check')
-        RNFetchBlob.config({ trusty: true })
-        .fetch(
-          'GET',
-          endpointData
-        )
-        .then(res => console.log(res));
-      }
+  }
+  async doGetRequestv2(endpointData: string) {
+    console.log('check');
+    var request = RNFetchBlob.config({trusty: true})
+      .fetch('GET', endpointData)
+      .then(res => console.log(res));
+    console.log(request)
+  }
 
-    
-
-    async doGetRequestv4(endpointData: string, formdata: FormData) {
-        /*RNFetchBlob.config({ trusty: true })
+  async doGetRequestv4(endpointData: string, formdata: FormData) {
+    /*RNFetchBlob.config({ trusty: true })
         .fetch(
           'POST',
           endpointData,
           'Content-Type': 'multipart/form-data'
         )
         .then(res => console.log(res));*/
-      }
+  }
 
-      async doGetRequestv4(endpointData: string) {
-        /*var request = RNFetchBlob.config({ trusty: true }).fetch('POST', endpointData, {       
-            'Content-Type': 'multipart/form-data',
-          }, [
-            { name: 'file',id: '441', filename: 'Download.png', type: 'image/png', data: JSON.stringify(RNFetchBlob.wrap('./Assets/Download.png'))}]).then((resp) => {
-              //response body 
-                      
-            }).catch((err) => {
-              console.log('error---------', err)
-              // ...
-              
-            })
-       console.log(request)*/
-      }
+  async doGetRequestv3(file: SelectedFile, endpointData: string) {
 
-      async doGetRequestv3(file: SelectedFile, endpointData: string) {
-    
-          const body = new FormData()
-          body.append('file', file)
-          
-          RNFetchBlob.config({ trusty: true })
-          .fetch('POST', endpointData, undefined, body)
-    
-      }
+    /*const body = new FormData();
+    body.append('file', { name: file.fileName!, type: file.type!, uri: file.uri! });
+    body.append('id', { id: '441'});*/
+    var request = RNFetchBlob.config({trusty: true})
+      .fetch(
+        'POST',
+        endpointData,
+        {
+          'Content-Type': 'multipart/form-data'
+        },
+        [
+          {
+            name: 'file',
+            filename: file.fileName!,
+            type: file.type!,
+            data: RNFetchBlob.wrap(file.uri!),
+          },
+          {
+            name : 'id', data : '441'
+          }
+        ]
+      )
+      .then(resp => {
+        //response body
+      })
+      .catch(err => {
+        console.log('error---------', err);
+        // ...
+      });
+    console.log(request);
+  }
 
+  async doGetRequestv5(file: SelectedFile, endpointData: string) {
+    /*const body = new FormData();
+    body.append('file', file);
+    body.append('id', 441);
 
-      
+    RNFetchBlob.config({trusty: true})
+      .fetch(
+        'POST',
+        endpointData,
+        {'Content-Type': 'multipart/form-data'},
+        JSON.stringify(body),
+      )
+      .then(res => console.log(res));*/
+  }
+
+  async doGetRequestv6(file: SelectedFile, endpointData: string) {
+    console.log('check')
+    RNFetchBlob.fetch('POST', endpointData, {
+      'Content-Type' : 'multipart/form-data',
+    }, [
+     
+      { name : 'file', filename : file.fileName!, type: file.type!, data: RNFetchBlob.wrap(file.uri!)},
+      // elements without property `filename` will be sent as plain text
+      { name : 'name', data : 'user'},
+      { name : 'id', data : '441'},
+    ]).then((resp) => {
+      console.log(resp)
+    }).catch((err) => {
+      // ...
+    })
+  }
 }
 
 
-export namespace RequestManager{
-    export enum Type{
-        GET = "GET",
-        POST = "POST",
-        PUT = "PUT",
-        DELETE = "DELETE"
+export namespace RequestManager {
+  export enum Type {
+    GET = 'GET',
+    POST = 'POST',
+    PUT = 'PUT',
+    DELETE = 'DELETE',
+  }
+}
 
-    }
+function alert(arg0: string): any {
+  throw new Error('Function not implemented.');
 }
