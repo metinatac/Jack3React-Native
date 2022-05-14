@@ -24,7 +24,6 @@ import {
   PermissionsAndroid,
   Permission,
 } from 'react-native';
-import {DebugInstructions} from 'react-native/Libraries/NewAppScreen';
 import CustomButton from '../ViewComponents/CustomButton';
 import {Colors, Resources} from '../Constants';
 import CustomModal from '../ViewComponents/CustomModal';
