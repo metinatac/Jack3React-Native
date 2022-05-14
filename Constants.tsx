@@ -12,6 +12,7 @@ export enum Colors{
     secondaryGray4 = '#c7c9c7',
     secondaryGray5 = '#f4f3f4',
     listElementBackground = '#b3e4f2',
+    blurred = '#F5FCFF88',
 }
 export enum Resources{
     editIcon = require('./Assets/icons/editPenIcon.png'),

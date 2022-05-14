@@ -27,6 +27,7 @@ import {
 import {DebugInstructions} from 'react-native/Libraries/NewAppScreen';
 import CustomButton from '../ViewComponents/CustomButton';
 import {Colors, Resources} from '../Constants';
+import CustomModal from '../ViewComponents/CustomModal';
 
 export function getNewFilesArray(
   fileIndex: number,
@@ -59,14 +60,12 @@ interface IQRCodeDetailsViewProps {
 
 interface IQRCodeDetailsViewState {
   data: [];
-  isLoading: Boolean;
+  isLoading: boolean;
+  changeNameModalVisible: boolean;
   result: SelectedFile[];
 }
 
-export default class QRCodeDetailsView extends React.Component<
-  IQRCodeDetailsViewProps,
-  IQRCodeDetailsViewState
-> {
+export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsViewProps,IQRCodeDetailsViewState> {
   componentWillUnmount() {
     Navigation.updateProps(this.props.idOfViewBefore, {
       enableScan: true,
@@ -83,20 +82,24 @@ export default class QRCodeDetailsView extends React.Component<
   }
 
   private filesArray: SelectedFile[] = [];
-
+  private editingFile: number = 0;
   private makeReq = async () => {
     const rM = new RequestManager();
     rM.doGetRequestv2('https://192.168.0.234:8443/fileuploadservlet');
   };
   private makeReqv3 = async () => {
     
-    const success = (resp:string) =>{
-        console.log("OVER",resp)
+    var succededFilesCount: number = 0 ;
+    var failedFilesCount: number = 0 ;
+    const success = () =>{
+        succededFilesCount++;
+        if(succededFilesCount === this.filesArray.length){
+          console.log("indicator should be done")
+          this.uploadDoneCompletely();
+        }
     };
 
-    const fail = () =>{
-      console.log("FAIL")
-
+    const fail = (failedFile: SelectedFile) =>{
     };
 
     const jsonObj = JSON.parse(this.props.qrCodeData)
@@ -110,15 +113,18 @@ export default class QRCodeDetailsView extends React.Component<
     
     const rM = new RequestManager();
     
-    this.filesArray.forEach(async element => {
-      await rM.doGetRequestv3(
+    this.filesArray.forEach(async element =>{
+       await rM.doGetRequestv3(
         element,
         endpoint , subID,
         success
       )
-    });
-  
+    })
   };
+  
+
+
+
 
   private request = async () => {
     const rqManager = new RequestManager();
@@ -136,7 +142,9 @@ export default class QRCodeDetailsView extends React.Component<
     this.state = {
       isLoading: false,
       data: [],
+      changeNameModalVisible: false,
       result: [],
+
     };
   }
   public Sheet(show: boolean) {
@@ -148,6 +156,11 @@ export default class QRCodeDetailsView extends React.Component<
       SheetManager.hide(sheetKey);
     }
   }
+
+  private uploadDoneCompletely(){
+    this.setState({isLoading: false});
+  }
+
 
   public openMultiPicker() {
     this.Sheet(false);
@@ -184,57 +197,97 @@ export default class QRCodeDetailsView extends React.Component<
       .catch(handleError);
   }
   async openCamera() {
-    this.Sheet(false);
-    const permissionStatus = await this.checkPermisson(
-      PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-      '',
-      '',
-      '',
-    );
-    const result = await launchCamera({saveToPhotos: true, mediaType: 'photo'});
-    if (result.errorCode !== undefined) {
-      console.error(result.errorCode);
-    }
-    const tmpFileCount = this.state.result.length;
-    if (result.assets !== undefined) {
-      var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(
-        result.assets.length,
+      this.Sheet(false);
+      const permissionStatus = await this.checkPermisson(
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        '',
+        '',
+        '',
       );
-      result.assets.forEach(function (value, index) {
-        tmpConvertedFiles[index] = new SelectedFile(value);
-        tmpConvertedFiles[index].fileName =
-          'Image_' + (tmpFileCount + index + 1) + '';
-      });
-      this.filesArray = this.filesArray.concat(tmpConvertedFiles);
-      this.setState({result: this.state.result.concat(tmpConvertedFiles)});
-      // }
-    }
+      const result = await launchCamera({saveToPhotos: true, mediaType: 'photo'});
+      if (result.errorCode !== undefined) {
+        console.error(result.errorCode);
+      }
+      const tmpFileCount = this.state.result.length;
+      if (result.assets !== undefined) {
+        var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(
+          result.assets.length,
+        );
+        result.assets.forEach(function (value, index) {
+          tmpConvertedFiles[index] = new SelectedFile(value);
+          tmpConvertedFiles[index].fileName =
+            'Image_' + (tmpFileCount + index + 1) + '';
+        });
+        this.filesArray = this.filesArray.concat(tmpConvertedFiles);
+        this.setState({result: this.state.result.concat(tmpConvertedFiles)});
+        // }
+      }
   }
 
   async openGallery() {
-    this.Sheet(false);
-    const permissionStatus = await this.checkPermisson(
-      PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-      '',
-      '',
-      '',
-    );
-    const result = await launchImageLibrary({mediaType: 'photo'});
-    if (result.assets !== undefined) {
-      var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(
-        result.assets.length,
+      this.Sheet(false);
+      const permissionStatus = await this.checkPermisson(
+        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+        '',
+        '',
+        '',
       );
-      const tmpFileCount = this.state.result.length;
-      result.assets.forEach(function (value, index) {
-        tmpConvertedFiles[index] = new SelectedFile(value);
-        tmpConvertedFiles[index].fileName =
-          'Image_' + (tmpFileCount + index + 1) + '';
-      });
+      const result = await launchImageLibrary({mediaType: 'photo'});
+      if (result.assets !== undefined) {
+        var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(
+          result.assets.length,
+        );
+        const tmpFileCount = this.state.result.length;
+        result.assets.forEach(function (value, index) {
+          tmpConvertedFiles[index] = new SelectedFile(value);
+          tmpConvertedFiles[index].fileName =
+            'Image_' + (tmpFileCount + index + 1) + '';
+        });
 
-      this.filesArray = this.filesArray.concat(tmpConvertedFiles);
-      console.log(this.filesArray);
-      this.setState({result: this.state.result.concat(tmpConvertedFiles)});
-    }
+        this.filesArray = this.filesArray.concat(tmpConvertedFiles);
+        console.log(this.filesArray);
+        this.setState({result: this.state.result.concat(tmpConvertedFiles)});
+      }
+  } 
+  private editFile(_index: number, _files: SelectedFile[]) {
+      this.editingFile = _index;
+      this.setState({changeNameModalVisible:true})
+  }
+
+  private removeFile(_index: number, _files: SelectedFile[]) {
+      this.setState({result: getNewFilesArray(_index, _files)});
+  }
+
+  private onChangeNameSubmit(filename: string){
+      this.filesArray[this.editingFile].fileName = filename;
+      this.setState({changeNameModalVisible:false})
+  }
+  private onUploadPress(){
+      this.makeReqv3()
+      this.setState({isLoading: true})
+  }
+
+  async checkPermisson(
+      forPermisson: Permission,
+      titleText: string,
+      messageText: string,
+      buttonPositiveLable: string,
+      buttonNeutralLable?: string,
+      buttonNegativeLable?: string,
+  ) {
+      try {
+        const granted = await PermissionsAndroid.request(forPermisson, {
+          title: titleText,
+          message: messageText,
+
+          buttonNeutral: buttonNeutralLable,
+          buttonNegative: buttonNegativeLable,
+          buttonPositive: buttonPositiveLable,
+        });
+        return granted; // tpye -> PermisssionStatus
+      } catch (err) {
+        console.log(err);
+      }
   }
 
   public render() {
@@ -242,10 +295,8 @@ export default class QRCodeDetailsView extends React.Component<
     console.log(this.state.result.length);
     return (
       <View style={styles.container}>
-        {this.state.isLoading ? (
-          <ActivityIndicator />
-        ) : (
-          <View style={styles.container2}>
+          <View style={styles.container2}
+          pointerEvents= {this.state.isLoading? 'none':'auto'}>
             <SectionList
               style={styles.sectionListContainer}
               sections={[{title: 'Dokumente', data: this.state.result}]}
@@ -258,12 +309,20 @@ export default class QRCodeDetailsView extends React.Component<
                   onRemove={this.removeFile.bind(this)}></FileCard>
               )}
             />
-
+            <CustomModal
+            visible = {this.state.changeNameModalVisible}
+            titleLabel='Namen der Date ändern'
+            cancelLabel='Abbrechen'
+            submitLabel='Bestätigen'
+            onSubmit={this.onChangeNameSubmit.bind(this)}
+            onCancel={() => this.setState({changeNameModalVisible: false})}
+            showTextInput = {true}
+            />
             <View style={styles.controllButtonsContainer}>
               <CustomButton
                 style={styles.customButtoncontainer}
                 text="Hochladen"
-                onPress={this.makeReqv3.bind(this)}
+                onPress={this.onUploadPress.bind(this)}
                 icon={Resources.uploadIcon}
                 borderRadius={50}
                 iconPaddingLeft={50}
@@ -299,40 +358,19 @@ export default class QRCodeDetailsView extends React.Component<
               </View>
             </ActionSheet>
           </View>
-        )}
+        {this.state.isLoading &&
+          <View style={styles.loading}>
+            <ActivityIndicator 
+              size={'large'}
+              color={Colors.primaryBlue}
+            />
+          </View>
+          }
       </View>
     );
   }
-
-  private editFile(_index: number, _files: SelectedFile[]) {}
-
-  private removeFile(_index: number, _files: SelectedFile[]) {
-    this.setState({result: getNewFilesArray(_index, _files)});
-  }
-
-  async checkPermisson(
-    forPermisson: Permission,
-    titleText: string,
-    messageText: string,
-    buttonPositiveLable: string,
-    buttonNeutralLable?: string,
-    buttonNegativeLable?: string,
-  ) {
-    try {
-      const granted = await PermissionsAndroid.request(forPermisson, {
-        title: titleText,
-        message: messageText,
-
-        buttonNeutral: buttonNeutralLable,
-        buttonNegative: buttonNegativeLable,
-        buttonPositive: buttonPositiveLable,
-      });
-      return granted; // tpye -> PermisssionStatus
-    } catch (err) {
-      console.log(err);
-    }
-  }
 }
+ 
 
 const styles = StyleSheet.create({
   container: {
@@ -379,4 +417,14 @@ const styles = StyleSheet.create({
   customButtoncontainer: {
     justifyContent: 'space-evenly',
   },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.blurred
+  }
 });

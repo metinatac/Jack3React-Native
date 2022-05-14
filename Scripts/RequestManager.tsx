@@ -53,7 +53,7 @@ fetch(url, {
         .then(res => console.log(res));*/
   }
 
-  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string, responseCallback:(response: string)=>void){
+  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string, responseCallback:()=>void){
 
     /*const body = new FormData();
     body.append('file', { name: file.fileName!, type: file.type!, uri: file.uri! });
@@ -78,7 +78,7 @@ fetch(url, {
         ]
       )
       .then(resp => {
-       responseCallback(resp.data);
+       responseCallback();
       })
       .catch(err => {
         console.log('error---------', err);
