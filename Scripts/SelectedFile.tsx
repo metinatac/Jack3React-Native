@@ -1,4 +1,5 @@
 import {Asset}from "react-native-image-picker";
+import { isSearchBarAvailableForCurrentPlatform } from "react-native-screens";
 export class SelectedFile implements Asset{
     base64?: string;
     uri?: string;
@@ -25,6 +26,16 @@ export class SelectedFile implements Asset{
        this.id= props.id 
 
        
+    }
+
+
+    public getFileNameWithType(): string{
+        const splittedType = this.type?.split("/")
+       if(splittedType){
+        const type = splittedType[1]
+        return this.fileName+"."+type
+       }
+        return ""
     }
 
 }

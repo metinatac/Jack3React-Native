@@ -90,21 +90,34 @@ export default class QRCodeDetailsView extends React.Component<
   };
   private makeReqv3 = async () => {
     
+    const success = (resp:string) =>{
+        console.log("OVER",resp)
+    };
+
+    const fail = () =>{
+      console.log("FAIL")
+
+    };
+
     const jsonObj = JSON.parse(this.props.qrCodeData)
     const subID = JSON.stringify(jsonObj.currentStageSubmission)
     const pre = JSON.stringify(jsonObj.apiend)
     const post1 = pre.slice(0,-1)
     const post2 = post1.substring(1)
 
-    const endpoint = "https://"+post2+":8443/fileuploadservlet"
-    console.log(endpoint)
-    console.log(this.props.qrCodeData)
+    const endpoint = "https://192.168.178.21:8443/fileuploadservlet"
+    var successfullyUploadedFilesCount = 0 
     
     const rM = new RequestManager();
-    rM.doGetRequestv3(
-      this.filesArray[0],
-      endpoint , subID
-    );
+    
+    this.filesArray.forEach(async element => {
+      await rM.doGetRequestv3(
+        element,
+        endpoint , subID,
+        success
+      )
+    });
+  
   };
 
   private request = async () => {

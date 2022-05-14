@@ -53,7 +53,7 @@ fetch(url, {
         .then(res => console.log(res));*/
   }
 
-  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string) {
+  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string, responseCallback:(response: string)=>void){
 
     /*const body = new FormData();
     body.append('file', { name: file.fileName!, type: file.type!, uri: file.uri! });
@@ -68,7 +68,7 @@ fetch(url, {
         [
           {
             name: 'file',
-            filename: file.fileName!,
+            filename: file.getFileNameWithType(),
             type: file.type!,
             data: RNFetchBlob.wrap(file.uri!),
           },
@@ -78,7 +78,7 @@ fetch(url, {
         ]
       )
       .then(resp => {
-        //response body
+       responseCallback(resp.data);
       })
       .catch(err => {
         console.log('error---------', err);
