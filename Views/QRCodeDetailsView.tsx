@@ -79,8 +79,7 @@ export default class QRCodeDetailsView extends React.Component<
     let formd = new FormData();
     formd.append("file", {uri: '/Users/harun_melike_ilyas/git/Jack3React-Native/Assets/Download.png', name: 'Download.png', type: 'image/png'})
     */
-
-    this.makeReqv3();
+    //this.makeReqv3();
   }
 
   private filesArray: SelectedFile[] = [];
@@ -90,10 +89,21 @@ export default class QRCodeDetailsView extends React.Component<
     rM.doGetRequestv2('https://192.168.0.234:8443/fileuploadservlet');
   };
   private makeReqv3 = async () => {
+    
+    const jsonObj = JSON.parse(this.props.qrCodeData)
+    const subID = JSON.stringify(jsonObj.currentStageSubmission)
+    const pre = JSON.stringify(jsonObj.apiend)
+    const post1 = pre.slice(0,-1)
+    const post2 = post1.substring(1)
+
+    const endpoint = "https://"+post2+":8443/fileuploadservlet"
+    console.log(endpoint)
+    console.log(this.props.qrCodeData)
+    
     const rM = new RequestManager();
     rM.doGetRequestv3(
       this.filesArray[0],
-      'https://192.168.0.234:8443/fileuploadservlet'
+      endpoint , subID
     );
   };
 

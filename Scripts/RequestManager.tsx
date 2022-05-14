@@ -53,7 +53,7 @@ fetch(url, {
         .then(res => console.log(res));*/
   }
 
-  async doGetRequestv3(file: SelectedFile, endpointData: string) {
+  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string) {
 
     /*const body = new FormData();
     body.append('file', { name: file.fileName!, type: file.type!, uri: file.uri! });
@@ -73,7 +73,7 @@ fetch(url, {
             data: RNFetchBlob.wrap(file.uri!),
           },
           {
-            name : 'id', data : '441'
+            name : 'id', data : submissionID
           }
         ]
       )
