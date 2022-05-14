@@ -53,7 +53,7 @@ fetch(url, {
         .then(res => console.log(res));*/
   }
 
-  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string, responseCallback:(response: string)=>void){
+  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string, userName: string, successCallback:()=>void, failCallback:()=>void){
 
     /*const body = new FormData();
     body.append('file', { name: file.fileName!, type: file.type!, uri: file.uri! });
@@ -74,11 +74,19 @@ fetch(url, {
           },
           {
             name : 'id', data : submissionID
+          },
+          {
+            name : 'username', data : userName
           }
         ]
       )
       .then(resp => {
-       responseCallback(resp.data);
+        if(resp.data === "SUCCESS"){
+          successCallback();
+        } else{
+          failCallback();
+        }
+
       })
       .catch(err => {
         console.log('error---------', err);
