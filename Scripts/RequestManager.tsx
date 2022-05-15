@@ -78,7 +78,12 @@ fetch(url, {
         ]
       )
       .then(resp => {
-       responseCallback();
+        if(resp.data === "SUCCESS"){
+          responseCallback();
+        }else{
+          responseCallback();
+        }
+       
       })
       .catch(err => {
         console.log('error---------', err);
