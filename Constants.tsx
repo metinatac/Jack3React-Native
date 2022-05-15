@@ -12,7 +12,7 @@ export enum Colors{
     secondaryGray4 = '#c7c9c7',
     secondaryGray5 = '#f4f3f4',
     listElementBackground = '#b3e4f2',
-    blurred = '#F5FCFF88',
+    blurred = 'rgba(200, 200, 200, 0.8)',
 }
 export enum Resources{
     editIcon = require('./Assets/icons/editPenIcon.png'),
@@ -23,4 +23,6 @@ export enum Resources{
     uploadIcon = require('./Assets/icons/uploadFileIcon.png'),
     fileIcon = require('./Assets/icons/fileIcon.png'),
     cameraIcon = require('./Assets/icons/cameraIcon.png'),
+    failCross = require('./Assets/icons/failCross.png'),
+    successTick = require('./Assets/icons/successTick.png'),
 }

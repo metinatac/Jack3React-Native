@@ -15,8 +15,8 @@ interface IFileCardProps {
     files: SelectedFile[]
     file: SelectedFile
     index: number;
-    onEdit: (index: number, files: SelectedFile[]) => void;
-    onRemove: (index: number, files: SelectedFile[]) => void;
+    onEdit?: (index: number, files: SelectedFile[]) => void;
+    onRemove?: (index: number, files: SelectedFile[]) => void;
 }
 
 interface IFileCardState {
@@ -51,20 +51,20 @@ export default class FileCard extends React.Component<IFileCardProps, IFileCardS
                     
                 </View>
                 <View>
-                    <CustomButton
+                    {this.props.onEdit && <CustomButton
                         text=''
-                        onPress={() => this.props.onEdit(this.props.index,this.props.files)}
+                        onPress={() => this.props.onEdit!(this.props.index,this.props.files)}
                         icon={Resources.editIcon}
                         borderRadius={15}
-                    /> 
+                    /> }
                 </View>
                 <View>
-                    <CustomButton
+                   {this.props.onRemove && <CustomButton
                         text=''
-                        onPress={() => this.props.onRemove(this.props.index,this.props.files)}
+                        onPress={() => this.props.onRemove!(this.props.index,this.props.files)}
                         icon={Resources.removeIcon}
                         borderRadius={15}
-                    /> 
+                    /> }
                 </View>
 
             </View>

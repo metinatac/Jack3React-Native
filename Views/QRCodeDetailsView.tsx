@@ -23,6 +23,7 @@ import {
   SectionList,
   PermissionsAndroid,
   Permission,
+  Image,
 } from 'react-native';
 import CustomButton from '../ViewComponents/CustomButton';
 import {Colors, Resources} from '../Constants';
@@ -59,8 +60,11 @@ interface IQRCodeDetailsViewProps {
 
 interface IQRCodeDetailsViewState {
   data: [];
-  isLoading: boolean;
+  loadingIsvisible: boolean;
+  uploadFailed: boolean;
+  uploadSucceeded: boolean;
   changeNameModalVisible: boolean;
+  failedFiles: SelectedFile[];
   result: SelectedFile[];
 }
 
@@ -83,17 +87,32 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
   private filesArray: SelectedFile[] = [];
   private editingFile: number = 0;
   private makeReq = async () => {
-    const rM = new RequestManager();
+       const rM = new RequestManager();
     rM.doGetRequestv2('https://192.168.0.234:8443/fileuploadservlet');
   };
   private makeReqv3 = async () => {
     
+    var filesProceeded: number = 0 ;
+    var failedFiles: SelectedFile[] = [];
     const success = () =>{
-        console.log("SUCCESS")
+      filesProceeded++;
+      console.log("Success_Callback");
+      if(filesProceeded === this.filesArray.length){
+        console.log("indicator should be done")
+        this.checkIfUploadWasSuccessful(failedFiles);
+      }
     };
 
-    const fail = () =>{
-      console.log("FAIL")
+    const fail = (file:SelectedFile) =>{
+      filesProceeded++;
+      console.log("FAIL_CALLBACK");
+      let _failedFile: SelectedFile[] = [file];
+      console.log("TMP_FAILDFILE ARRAY length"+_failedFile.length);
+      failedFiles = failedFiles.concat(_failedFile)
+      if(filesProceeded === this.filesArray.length){
+        console.log("indicator should be done")
+        this.checkIfUploadWasSuccessful(failedFiles);
+      }
     };
 
     const jsonObj = JSON.parse(this.props.qrCodeData)
@@ -135,15 +154,18 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
     );
 
     this.setState({
-      isLoading: false,
+      loadingIsvisible: false,
     });
   };
   constructor(props: IQRCodeDetailsViewProps) {
     super(props);
     this.state = {
-      isLoading: false,
+      loadingIsvisible: false,
+      uploadFailed:false,
+      uploadSucceeded: false,
       data: [],
       changeNameModalVisible: false,
+      failedFiles: [],
       result: [],
 
     };
@@ -158,8 +180,17 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
     }
   }
 
-  private uploadDoneCompletely(){
-    this.setState({isLoading: false});
+  private checkIfUploadWasSuccessful(failedFiles:SelectedFile[]){
+   
+    if(failedFiles.length > 0){
+      //SOMETHING WENT WRONG FOR FILES ...
+      console.log("FAILED FILES ARRAY SETTING")
+      this.setState({failedFiles: failedFiles,uploadFailed: true});
+
+    }else{
+      this.setState({uploadSucceeded: true});
+    }
+
   }
 
 
@@ -265,7 +296,19 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
   }
   private onUploadPress(){
       this.makeReqv3()
-      this.setState({isLoading: true})
+      this.setState({loadingIsvisible: true})
+  }
+
+  private closeResponseScreen(){
+    this.filesArray = this.state.failedFiles
+    this.setState({
+      loadingIsvisible: false,
+      uploadFailed: false,
+      uploadSucceeded: false,
+      result: this.filesArray,
+      failedFiles: []
+    })
+
   }
 
   async checkPermisson(
@@ -297,7 +340,7 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
     return (
       <View style={styles.container}>
           <View style={styles.container2}
-          pointerEvents= {this.state.isLoading? 'none':'auto'}>
+          pointerEvents= {this.state.loadingIsvisible? 'none':'auto'}>
             <SectionList
               style={styles.sectionListContainer}
               sections={[{title: 'Dokumente', data: this.state.result}]}
@@ -359,12 +402,71 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
               </View>
             </ActionSheet>
           </View>
-        {this.state.isLoading &&
+        {this.state.loadingIsvisible &&
           <View style={styles.loading}>
-            <ActivityIndicator 
-              size={'large'}
-              color={Colors.primaryBlue}
-            />
+              {!this.state.uploadFailed && !this.state.uploadSucceeded && 
+              <ActivityIndicator 
+                  size={'large'}
+                  color={Colors.primaryBlue}
+                />}
+              {this.state.uploadFailed &&
+                <View style = {styles.loading}>
+                    <View style={{flex:1,paddingTop:20}}>
+                      <Image 
+                      style ={styles.responseImage}
+                      source={this.state.uploadSucceeded? Resources.successTick: Resources.failCross}
+                      />
+                  </View>
+                 
+                  <View style={{flex:3}}>
+                  <Text>Hochladen fehlgeschlagen für:</Text>
+                  <SectionList
+                    style={{width:'90%'}}
+                    sections={[{title: 'Dokumente', data: this.state.failedFiles}]}
+                    renderItem={({item, index}) => (
+                        <FileCard
+                          files={this.filesArray}
+                          file={item}
+                          index={index}
+                          >
+                          </FileCard>
+                      )}
+                    />
+                  </View>
+                 
+                  <View style={{flex:1}}>
+                      <CustomButton
+                      text='Fertig'
+                      onPress={this.closeResponseScreen.bind(this)}
+                      />
+                  </View>
+
+                  
+                </View>
+              }
+              {this.state.uploadSucceeded &&
+                <View style = {styles.loading}>
+                    <View style={{flex:1,paddingTop:20}}>
+                      <Image 
+                      style ={styles.responseImage}
+                      source={this.state.uploadSucceeded? Resources.successTick: Resources.failCross}
+                      />
+                  </View>
+                 
+                  <View style={{flex:3}}>
+                    <Text>Daten erfolgreich hochgeladen!</Text>
+                  </View>
+                 
+                  <View style={{flex:1}}>
+                      <CustomButton
+                      text='Fertig'
+                      onPress={this.closeResponseScreen.bind(this)}
+                      />
+                  </View>
+
+                  
+                </View>
+              }
           </View>
           }
       </View>
@@ -426,6 +528,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.blurred
+    backgroundColor: Colors.blurred,
+    flex:1
+  },
+  responseImage:{
+    paddingTop:10,
+    width: 50,
+    height: 50,
+
   }
 });
