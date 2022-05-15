@@ -116,7 +116,7 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
        await rM.doGetRequestv3(
         element,
         endpoint , subID,
-        success
+        success,fail
       )
     })
   };

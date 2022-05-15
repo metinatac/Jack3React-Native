@@ -53,7 +53,7 @@ fetch(url, {
         .then(res => console.log(res));*/
   }
 
-  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string, responseCallback:()=>void){
+  async doGetRequestv3(file: SelectedFile, endpointData: string, submissionID: string, userName: string, successCallback:()=>void, failCallback:()=>void){
 
     /*const body = new FormData();
     body.append('file', { name: file.fileName!, type: file.type!, uri: file.uri! });
@@ -74,16 +74,19 @@ fetch(url, {
           },
           {
             name : 'id', data : submissionID
+          },
+          {
+            name : 'username', data : userName
           }
         ]
       )
       .then(resp => {
         if(resp.data === "SUCCESS"){
-          responseCallback();
-        }else{
-          responseCallback();
+          successCallback();
+        } else{
+          failCallback();
         }
-       
+
       })
       .catch(err => {
         console.log('error---------', err);
@@ -91,7 +94,6 @@ fetch(url, {
       });
     console.log(request);
   }
-
   async doGetRequestv5(file: SelectedFile, endpointData: string) {
     /*const body = new FormData();
     body.append('file', file);
