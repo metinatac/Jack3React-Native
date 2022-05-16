@@ -70,7 +70,7 @@ fetch(url, {
             name: 'file',
             filename: file.getFileNameWithType(),
             type: file.type!,
-            data: RNFetchBlob.wrap(file.uri!),
+            data: RNFetchBlob.wrap(file.getPlatformURI()),
           },
           {
             name : 'id', data : submissionID

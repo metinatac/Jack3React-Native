@@ -1,3 +1,4 @@
+import { Platform } from "react-native";
 import {Asset}from "react-native-image-picker";
 import { isSearchBarAvailableForCurrentPlatform } from "react-native-screens";
 export class SelectedFile implements Asset{
@@ -36,6 +37,14 @@ export class SelectedFile implements Asset{
         return this.fileName+"."+type
        }
         return ""
+    }
+    public getPlatformURI():string{
+        if(Platform.OS =='ios'){
+            let trimmed = this.uri?.replace('file://', '')
+            return trimmed!;
+        }else{
+            return this.uri!;
+        }
     }
 
 }

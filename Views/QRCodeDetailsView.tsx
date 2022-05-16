@@ -24,6 +24,7 @@ import {
   PermissionsAndroid,
   Permission,
   Image,
+  Platform,
 } from 'react-native';
 import CustomButton from '../ViewComponents/CustomButton';
 import {Colors, Resources} from '../Constants';
@@ -170,13 +171,13 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
 
     };
   }
-  public Sheet(show: boolean) {
+  async Sheet(show: boolean) {
     const sheetKey: string = 'HELLO';
     if (show) {
       console.log('OPEN SHEET');
       SheetManager.show(sheetKey);
     } else {
-      SheetManager.hide(sheetKey);
+      await SheetManager.hide(sheetKey);
     }
   }
 
@@ -194,8 +195,8 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
   }
 
 
-  public openMultiPicker() {
-    this.Sheet(false);
+  async openMultiPicker() {
+   
     const handleError = (err: unknown) => {
       if (DocumentPicker.isCancel(err)) {
         console.log('cancelled');
@@ -208,7 +209,7 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
         throw err;
       }
     };
-    DocumentPicker.pickMultiple()
+   await DocumentPicker.pickMultiple()
       .then(value => {
         var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(
           value.length,
@@ -222,20 +223,23 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
           });
           console.log(tmpConvertedFiles[index].fileName);
         });
-
+        this.Sheet(false);
         this.filesArray = this.filesArray.concat(tmpConvertedFiles);
         this.setState({result: this.state.result.concat(tmpConvertedFiles)});
       })
       .catch(handleError);
   }
+
   async openCamera() {
-      this.Sheet(false);
-      const permissionStatus = await this.checkPermisson(
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        '',
-        '',
-        '',
-      );
+     
+      if(Platform.OS === 'android' ){
+        const permissionStatus = await this.checkPermisson(
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+          '',
+          '',
+          '',
+        );
+      }
       const result = await launchCamera({saveToPhotos: true, mediaType: 'photo'});
       if (result.errorCode !== undefined) {
         console.error(result.errorCode);
@@ -250,6 +254,7 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
           tmpConvertedFiles[index].fileName =
             'Image_' + (tmpFileCount + index + 1) + '';
         });
+        this.Sheet(false);
         this.filesArray = this.filesArray.concat(tmpConvertedFiles);
         this.setState({result: this.state.result.concat(tmpConvertedFiles)});
         // }
@@ -257,13 +262,16 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
   }
 
   async openGallery() {
-      this.Sheet(false);
-      const permissionStatus = await this.checkPermisson(
-        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-        '',
-        '',
-        '',
-      );
+     
+      if(Platform.OS === 'android' ){
+        const permissionStatus = await this.checkPermisson(
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+          '',
+          '',
+          '',
+        );
+      }
+      console.log("GALLERY SHOULD OPEN")
       const result = await launchImageLibrary({mediaType: 'photo'});
       if (result.assets !== undefined) {
         var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(
@@ -275,7 +283,7 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
           tmpConvertedFiles[index].fileName =
             'Image_' + (tmpFileCount + index + 1) + '';
         });
-
+        this.Sheet(false);
         this.filesArray = this.filesArray.concat(tmpConvertedFiles);
         console.log(this.filesArray);
         this.setState({result: this.state.result.concat(tmpConvertedFiles)});

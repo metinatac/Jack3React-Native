@@ -53,6 +53,8 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is used to scan QR-Codes</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Images from library are used to pick them</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>
