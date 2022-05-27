@@ -1,5 +1,6 @@
+import { Platform } from "react-native";
 export enum Colors{
-    primaryBlue = '#002554',
+    primaryBlue = '#00a4d2',
     primaryWhite = '#ffffff',
     primaryLightGray = '#b2b4b2',
     primaryDarkGray = '#8d8c8a',
@@ -25,4 +26,27 @@ export enum Resources{
     cameraIcon = require('./Assets/icons/cameraIcon.png'),
     failCross = require('./Assets/icons/failCross.png'),
     successTick = require('./Assets/icons/successTick.png'),
+    qrCodeIcon = require('./Assets/icons/qrCodeIcon.png'),
+    jackLogo = require('./Assets/jackLogo.png'),
 }
+
+type NumberClosure = (value: number) => void;
+
+export let headerHeight = {
+    aHeight: Platform.OS === 'ios' ? 44 : 56,
+    handlers: [] as NumberClosure[],
+    set height(value) {
+        this.aHeight = value;
+        this.handlers.forEach((handler) => handler(value));
+    },
+    get height() {
+        return this.aHeight;
+    },
+    registerListener(handler: NumberClosure) {
+        this.handlers.push(handler);
+    },
+    unregisterListener(handler: NumberClosure) {
+        const index = this.handlers.indexOf(handler);
+        this.handlers.splice(index, 1);
+    },
+};

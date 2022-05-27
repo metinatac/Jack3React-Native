@@ -86,6 +86,7 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
   }
 
   private filesArray: SelectedFile[] = [];
+  private jsonObj = JSON.parse(this.props.qrCodeData)
   private editingFile: number = 0;
   private makeReq = async () => {
        const rM = new RequestManager();
@@ -116,10 +117,10 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
       }
     };
 
-    const jsonObj = JSON.parse(this.props.qrCodeData)
-    const subID = JSON.stringify(jsonObj.currentStageSubmission)
-    const userName = JSON.stringify(jsonObj.user)
-    const pre = JSON.stringify(jsonObj.apiend)
+    
+    const subID = JSON.stringify(this.jsonObj.currentStageSubmission)
+    const userName = JSON.stringify(this.jsonObj.user)
+    const pre = JSON.stringify(this.jsonObj.apiend)
     const post1 = pre.slice(0,-1)
     const post2 = post1.substring(1)
 
@@ -231,15 +232,18 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
   }
 
   async openCamera() {
-     
-      if(Platform.OS === 'android' ){
-        const permissionStatus = await this.checkPermisson(
-          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-          '',
-          '',
-          '',
-        );
-      }
+    if(Platform.OS === 'android' ){
+      const permissionStatus = await this.checkPermisson(
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        '',
+        '',
+        '',
+
+      );
+      console.log(permissionStatus)
+    }
+    console.log("GALLERY SHOULD OPEN")
+    
       const result = await launchCamera({saveToPhotos: true, mediaType: 'photo'});
       if (result.errorCode !== undefined) {
         console.error(result.errorCode);
@@ -347,6 +351,7 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
     console.log(this.state.result.length);
     return (
       <View style={styles.container}>
+        <Text>Aktuelle Aufgabe: {this.jsonObj.task_name+" > "+this.jsonObj.task_name}</Text>
           <View style={styles.container2}
           pointerEvents= {this.state.loadingIsvisible? 'none':'auto'}>
             <SectionList

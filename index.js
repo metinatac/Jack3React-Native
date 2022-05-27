@@ -1,11 +1,14 @@
+import { Image } from 'react-native';
 import {Navigation} from 'react-native-navigation';
 import Camera from './Views/Camera';
 import MainView from './Views/MainView';
 import QRCodeDetailsView from './Views/QRCodeDetailsView';
+import HeaderImageComponent from './ViewComponents/HeaderImageComponent';
 
 Navigation.registerComponent('MainScreen',() => MainView);
 Navigation.registerComponent('CameraView',() => Camera);
 Navigation.registerComponent('QRCodeDetailsView', () => QRCodeDetailsView)
+Navigation.registerComponent('HeaderImageComponent', () => HeaderImageComponent)
 
 Navigation.events().registerAppLaunchedListener(() => {
     Navigation.setRoot({
@@ -17,12 +20,15 @@ Navigation.events().registerAppLaunchedListener(() => {
                          name: 'MainScreen',
                          options: {
                              topBar:{
-                                 title: {
-                                     text: "Main"
-                                 }
-                              }
-                          }
-                      }
+                                title:{
+                                    component:{
+                                        name: 'HeaderImageComponent',
+                                        alignment: 'center'
+                                    },
+                                },
+                              },
+                          },
+                      },
                  },
              ]
           }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Constants } from 'react-native-navigation';
 import  {Colors, Resources}  from '../Constants';
 interface IActionSheetButtonProps {
     text: string;
@@ -52,12 +53,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row-reverse',
         paddingBottom: 30,
         paddingTop:20,
-        width:'100%'
+        width:'100%',
+        tintColor: Colors.primaryBlue,
     },
     buttonText: {
         fontSize: 17,
         textAlign: 'left',
-        width: "60%"
+        width: "60%",
+        color: Colors.primaryBlue,
         //paddingRight: 20,
     },
     image: {

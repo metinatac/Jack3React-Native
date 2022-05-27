@@ -3,6 +3,8 @@ import {RNCamera} from 'react-native-camera';
 import {Navigation} from 'react-native-navigation';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RequestManager } from "../Scripts/RequestManager";
+import CustomButton from "../ViewComponents/CustomButton";
+import { Resources } from "../Constants";
 import {
     View,
     StyleSheet,
@@ -42,10 +44,15 @@ export default class MainView extends React.Component<IMainViewProps,IMainViewSt
   public render(){
   return(
         <View style={styles.container}> 
-            <Button
-             title=" OPEN SCANNER"
-             onPress={this.openCameraView.bind(this)}
-            />
+             <CustomButton
+                style={styles.customButtoncontainer}
+                text="Scanner starten"
+                onPress={this.openCameraView.bind(this)}
+                icon={Resources.qrCodeIcon}
+                borderRadius={50}
+                iconPaddingLeft={50}
+                textPaddingLeft={20}
+              />
         </View>
   );
 }
@@ -61,9 +68,7 @@ private openCameraView() {
             },
             options: {
                 topBar:{
-                   title:{
-                       text: "QR-Code scanner"
-                   }
+                   visible:false
                 }
             }
         }
@@ -100,5 +105,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignSelf: 'center',
     margin: 20,
+  },
+  customButtoncontainer: {
+    justifyContent: 'space-evenly',
   },
 });

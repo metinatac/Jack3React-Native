@@ -119,7 +119,7 @@ private openDetailsView(data:any){
           options: {
               topBar:{
                  title:{
-                     text: "Code Details"
+                     text: "Hallo, "+ JSON.parse(data.data).user
                  }
               }
           }
