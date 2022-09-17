@@ -172,13 +172,12 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
 
     };
   }
-  async Sheet(show: boolean) {
+   Sheet(show: boolean) {
     const sheetKey: string = 'HELLO';
     if (show) {
-      console.log('OPEN SHEET');
       SheetManager.show(sheetKey);
     } else {
-      await SheetManager.hide(sheetKey);
+       SheetManager.hide(sheetKey);
     }
   }
 
@@ -197,19 +196,6 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
 
 
   async openMultiPicker() {
-   
-    const handleError = (err: unknown) => {
-      if (DocumentPicker.isCancel(err)) {
-        console.log('cancelled');
-        // User cancelled the picker, exit any dialogs or menus and move on
-      } else if (isInProgress(err)) {
-        console.log(
-          'multiple pickers were opened, only the last will be considered',
-        );
-      } else {
-        throw err;
-      }
-    };
    await DocumentPicker.pickMultiple()
       .then(value => {
         var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(
@@ -228,7 +214,6 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
         this.filesArray = this.filesArray.concat(tmpConvertedFiles);
         this.setState({result: this.state.result.concat(tmpConvertedFiles)});
       })
-      .catch(handleError);
   }
 
   async openCamera() {
@@ -351,7 +336,7 @@ export default class QRCodeDetailsView extends React.Component< IQRCodeDetailsVi
     console.log(this.state.result.length);
     return (
       <View style={styles.container}>
-        <Text>Aktuelle Aufgabe: {this.jsonObj.task_name+" > "+this.jsonObj.task_name}</Text>
+        <Text>Aktuelle Aufgabe: {this.jsonObj.course_name+" > "+this.jsonObj.task_name}</Text>
           <View style={styles.container2}
           pointerEvents= {this.state.loadingIsvisible? 'none':'auto'}>
             <SectionList
