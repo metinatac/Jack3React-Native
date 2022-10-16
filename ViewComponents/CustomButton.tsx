@@ -18,9 +18,6 @@ interface ICutomButtonProps {
     iconSize?: number;
     textPaddingLeft?: number;
     textPaddingRight?: number;
-    
-    
-    
 }
 
 export default class CustomButton extends React.Component<ICutomButtonProps, any> {

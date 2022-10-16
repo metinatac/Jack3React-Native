@@ -5,7 +5,6 @@ import { Colors, headerHeight, Resources } from '../Constants';
 
 interface IHeaderImageComponentState {
     componentHeight: number;
-   
 }
 
 export default class HeaderImageComponent extends React.Component<any, IHeaderImageComponentState> {
@@ -44,7 +43,6 @@ export default class HeaderImageComponent extends React.Component<any, IHeaderIm
                         {
                             height: this.state.componentHeight -  20,
                             width: Dimensions.get('window').width,
-                           // tintColor: Colors.primaryBlue,
                         },
                     ]}
                     source={Resources.jackLogo}

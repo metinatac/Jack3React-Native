@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     Animated,
-    Button,
     Dimensions,
     StyleSheet,
     Text,
@@ -39,9 +38,7 @@ export default class FileCard extends React.Component<IFileCardProps, IFileCardS
     }
 
     public render() {
-
         return (
-
             <View style={[styles.fileCardContainer]}>
                 <View style={[styles.fileNameContainer]}>
                     <Text>{this.props.file.fileName}</Text>
@@ -66,17 +63,7 @@ export default class FileCard extends React.Component<IFileCardProps, IFileCardS
                         borderRadius={15}
                     /> }
                 </View>
-
             </View>
-
-
-        )
-
-    }
-
-    private renderText(){
-        return (
-            <Text>{this.props.file.fileName}</Text>
         )
     }
 }
@@ -95,9 +82,6 @@ const styles = StyleSheet.create({
     fileNameContainer: {
         backgroundColor: Colors.secondaryGray5,
         width: '50%'
-
-
-
     },
 
     buttonStyle: {
@@ -106,7 +90,5 @@ const styles = StyleSheet.create({
     spacer:{
         paddingLeft: 10
     }
-
-
 
 });

@@ -1,17 +1,8 @@
-import React, { PureComponent } from "react";
-import {RNCamera} from 'react-native-camera';
+import React from "react";
 import {Navigation} from 'react-native-navigation';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { RequestManager } from "../Scripts/RequestManager";
 import CustomButton from "../ViewComponents/CustomButton";
 import { Resources } from "../Constants";
-import {
-    View,
-    StyleSheet,
-    Button
-} from 'react-native';
-
-
+import { View,StyleSheet} from 'react-native';
 
 interface IMainViewProps{
  componentId: string;
@@ -20,12 +11,11 @@ interface IMainViewProps{
 interface IMainViewState{
     cameraIsActive: boolean;
     qrCodeData: string;
-   
 }
 
 export default class MainView extends React.Component<IMainViewProps,IMainViewState>{
-   
-    constructor(props: IMainViewProps){
+    
+  constructor(props: IMainViewProps){
       super(props);
      this.state = {
          cameraIsActive: true,
@@ -34,7 +24,6 @@ export default class MainView extends React.Component<IMainViewProps,IMainViewSt
 
     this.onQRDetected = this.onQRDetected.bind(this)
     }
-
 
     private onQRDetected(data: any){
         console.log(data.data)
@@ -57,7 +46,6 @@ export default class MainView extends React.Component<IMainViewProps,IMainViewSt
   );
 }
 
-
 private openCameraView() {
     Navigation.push(this.props.componentId, {
         component: {
@@ -73,16 +61,8 @@ private openCameraView() {
             }
         }
     })
-}
-        
-    
-
-
-
-
+   }
  }
-
-
 
 const styles = StyleSheet.create({
   container: {

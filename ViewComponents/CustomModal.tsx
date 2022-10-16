@@ -1,5 +1,5 @@
 import React from 'react';
-import { Colors, Resources } from '../Constants';
+import {Colors} from '../Constants';
 import {
     KeyboardAvoidingView,
     Modal,
@@ -61,7 +61,6 @@ export default class CustomModal extends React.Component<ICustomModalProps, ICus
                         <View style={styles.buttonContainer}>
                             {this.props.cancelLabel && (
                                 <TouchableOpacity
-                                    testID="ModalButtonCancel"
                                     style={styles.modalButton}
                                     onPress={() => {
                                         if (this.props.onCancel) {
@@ -72,7 +71,6 @@ export default class CustomModal extends React.Component<ICustomModalProps, ICus
                                 </TouchableOpacity>
                             )}
                             <TouchableOpacity
-                                testID="ModalButtonSubmit"
                                 style={styles.modalButton}
                                 onPress={() => {
                                    if (this.props.onSubmit) {
