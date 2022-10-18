@@ -167,7 +167,7 @@ export default class UploadView extends React.Component<IUploadViewProps, IUploa
       console.log(permissionStatus)
     }
 
-    const result = await launchCamera({ saveToPhotos: true, mediaType: 'photo' });
+    const result = await launchCamera({ saveToPhotos: true, mediaType: 'photo' ,quality: 0.5});
     if (result.errorCode !== undefined) {
       console.error(result.errorCode);
     }
@@ -197,7 +197,7 @@ export default class UploadView extends React.Component<IUploadViewProps, IUploa
       );
     }
    
-    const result = await launchImageLibrary({ mediaType: 'photo' });
+    const result = await launchImageLibrary({ mediaType: 'photo',quality: 0.5 });
     if (result.assets !== undefined) {
       var tmpConvertedFiles: SelectedFile[] = new Array<SelectedFile>(
         result.assets.length,
