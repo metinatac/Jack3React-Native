@@ -1,15 +1,8 @@
-import React, { PureComponent } from "react";
-import {RNCamera} from 'react-native-camera';
+import React from "react";
 import {Navigation} from 'react-native-navigation';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { RequestManager } from "../Scripts/RequestManager";
-import {
-    View,
-    StyleSheet,
-    Button
-} from 'react-native';
-
-
+import CustomButton from "../ViewComponents/CustomButton";
+import { Resources } from "../Constants";
+import { View,StyleSheet} from 'react-native';
 
 interface IMainViewProps{
  componentId: string;
@@ -21,17 +14,16 @@ interface IMainViewState{
 }
 
 export default class MainView extends React.Component<IMainViewProps,IMainViewState>{
-   
-    constructor(props: IMainViewProps){
+    
+  constructor(props: IMainViewProps){
       super(props);
      this.state = {
          cameraIsActive: true,
-         qrCodeData: ""
+         qrCodeData: "",
      }
 
     this.onQRDetected = this.onQRDetected.bind(this)
     }
-
 
     private onQRDetected(data: any){
         console.log(data.data)
@@ -39,22 +31,19 @@ export default class MainView extends React.Component<IMainViewProps,IMainViewSt
     }
   
   public render(){
-  
   return(
         <View style={styles.container}> 
-            <Button
-             title=" OPEN SCANNER"
-             onPress={this.openCameraView.bind(this)}
-            />
-              
-                
-           
+             <CustomButton
+                style={styles.customButtoncontainer}
+                text="Scanner starten"
+                onPress={this.openCameraView.bind(this)}
+                icon={Resources.qrCodeIcon}
+                borderRadius={50}
+                iconPaddingLeft={50}
+                textPaddingLeft={20}
+              />
         </View>
   );
-}
-
-private bla(){
-  rmManger  = new RequestManager();
 }
 
 private openCameraView() {
@@ -67,23 +56,13 @@ private openCameraView() {
             },
             options: {
                 topBar:{
-                   title:{
-                       text: "QR-Code scanner"
-                   }
+                   visible:false
                 }
             }
         }
     })
-}
-        
-    
-
-
-
-
+   }
  }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -106,5 +85,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignSelf: 'center',
     margin: 20,
+  },
+  customButtoncontainer: {
+    justifyContent: 'space-evenly',
   },
 });

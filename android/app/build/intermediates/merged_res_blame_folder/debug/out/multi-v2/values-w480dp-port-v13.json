@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/metinatac/Documents/GitHub/Jack3React-Native/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w480dp-port-v13/values-w480dp-port-v13.xml",
+            "outputFile": "/Users/harun_melike_ilyas/git/Jack3React-Native/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w480dp-port-v13/values-w480dp-port-v13.xml",
             "map": [
                 {
-                    "source": "/Users/metinatac/.gradle/caches/transforms-3/37f7283a4685d79b1d7b92245f8e78fe/transformed/material-1.2.0-alpha03/res/values-w480dp-port-v13/values-w480dp-port-v13.xml",
+                    "source": "/Users/harun_melike_ilyas/.gradle/caches/transforms-3/37f7283a4685d79b1d7b92245f8e78fe/transformed/material-1.2.0-alpha03/res/values-w480dp-port-v13/values-w480dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

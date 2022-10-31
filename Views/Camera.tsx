@@ -1,15 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import {RNCamera} from 'react-native-camera';
 import {Navigation} from 'react-native-navigation';
 import {
     View,
-    AppRegistry,
-    Text,
-    TouchableOpacity,
     StyleSheet,
     Image
 } from 'react-native';
-import { throwStatement } from "@babel/types";
 
 interface ICameraProps{
   isQRScanner: boolean;
@@ -21,46 +17,15 @@ interface ICameraState{
   isActive: boolean;
 }
 
-
-
-const PendingView = () => (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: 'lightgreen',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text>Waiting</Text>
-    </View>
-  );
-
-
-function onBarCodeRead(scanResult: any){
-
-    console.warn(scanResult.type);
-    console.warn(scanResult.data);
-    if (scanResult.data != null) {
-	
-	  console.warn(scanResult.data);
-	
-    }
-    return;
-  }
-  
-
-
 export default class Camera extends React.Component<ICameraProps,ICameraState>{
     constructor(props: ICameraProps){
       super(props);
       this.state = {isActive: true,};
-      
     }
   
     private enabel = true;
 
-    componentDidUpdate(){ // Wird aufgerufen, wenn sich die PROPS updatend. PS: Kein setState aufrufen -> endless Rendering wird aufgerufen
+    componentDidUpdate(){ // Wird aufgerufen, wenn sich die PROPS aktualisieren. Kein setState aufrufen -> Endloses Rendering wird aufgerufen
         this.enabel = this.props.enableScan
     }
 
@@ -86,23 +51,13 @@ export default class Camera extends React.Component<ICameraProps,ICameraState>{
             buttonNegative: 'Cancel',
           }}
         >
-          {({ camera, status, recordAudioPermissionStatus }) => {
-            if (status !== 'READY') return <View />;
-            if(!this.props.isQRScanner)
-            return ( // -> Spaeter ein Button zum Foto schießen einfügen
-              <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-                  <Text style={{ fontSize: 14 }}> SNAP </Text>
-              </View>
-            );
-          }}
         </RNCamera>
         <View style= {styles.merged}>
           <Image
             style = {styles.scanIndicator}
             source={require('../Assets/scanIndicator.png')}
             />
-        </View>
-          
+        </View>    
       </View>
     );
   }
@@ -112,7 +67,7 @@ private openDetailsView(data:any){
     this.enabel = false;
     Navigation.push(this.props.componentId, {
       component: {
-          name: 'QRCodeDetailsView',
+          name: 'UploadView',
           passProps: {
               isQRScanner: true,
               idOfViewBefore: this.props.componentId,
@@ -121,7 +76,7 @@ private openDetailsView(data:any){
           options: {
               topBar:{
                  title:{
-                     text: "Code Details"
+                     text: "Hallo, "+ JSON.parse(data.data).user
                  }
               }
           }
@@ -132,10 +87,6 @@ private openDetailsView(data:any){
 }
 
 }
-
-
-
-  
 
 const styles = StyleSheet.create({
   container: {

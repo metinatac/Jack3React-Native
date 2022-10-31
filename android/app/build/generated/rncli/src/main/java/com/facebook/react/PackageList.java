@@ -13,12 +13,18 @@ import java.util.ArrayList;
 
 // react-native-camera
 import org.reactnative.camera.RNCameraPackage;
+// react-native-document-picker
+import com.reactnativedocumentpicker.DocumentPickerPackage;
+// react-native-image-picker
+import com.imagepicker.ImagePickerPackage;
 // react-native-navigation
 import com.reactnativenavigation.react.NavigationPackage;
 // react-native-safe-area-context
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
+// rn-fetch-blob
+import com.RNFetchBlob.RNFetchBlobPackage;
 
 public class PackageList {
   private Application application;
@@ -65,9 +71,12 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNCameraPackage(),
+      new DocumentPickerPackage(),
+      new ImagePickerPackage(),
       new NavigationPackage(reactNativeHost),
       new SafeAreaContextPackage(),
-      new RNScreensPackage()
+      new RNScreensPackage(),
+      new RNFetchBlobPackage()
     ));
   }
 }
